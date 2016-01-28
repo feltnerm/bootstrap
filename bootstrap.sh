@@ -59,4 +59,4 @@ echo "## pwd"
 pwd
 echo "## pwd"
 
-#ansible-playbook -i environments/local bootstrap.yml
+ansible-playbook -i environments/local bootstrap.yml
