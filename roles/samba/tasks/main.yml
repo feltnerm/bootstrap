@@ -1,0 +1,37 @@
+---
+
+- name: samba | install
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - samba
+
+#- name: samba | create shared directories
+#  become: true
+#  file:
+#    group="{{ item.group | default('users') }}"
+#    mode="{{ item.directory_mode | default(0775) }}"
+#    owner=root
+#    path="{{ item.path }}"
+#    state=directory
+#  when: samba_shares is defined
+#  with_items: samba_shares
+
+- name: samba | configure
+  become: true
+  template:
+    backup: true
+    dest: /etc/samba/smb.conf
+    src: smb.conf.j2
+    validate: 'testparm -s %s'
+  notify:
+    - Restart Samba service
+
+- name: samba | start service
+  become: true
+  service:
+    name: smbd
+    enabled: true
+    state: started

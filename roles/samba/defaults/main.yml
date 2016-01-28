@@ -1,0 +1,8 @@
+---
+
+samba_netbios_name: "{{ inventory_hostname }}"
+samba_workgroup: 'WORKGROUP'
+samba_server_string: "{{ inventory_hostname }}"
+samba_security: 'user'
+samba_passdb_backend: 'tdbsam'
+samba_map_to_guest: 'bad user'

@@ -1,0 +1,6 @@
+---
+
+- name: ncmpcpp | install
+  apt:
+    name: ncmpcpp
+    state: present

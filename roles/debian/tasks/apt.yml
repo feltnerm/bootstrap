@@ -1,0 +1,72 @@
+# Install some helpful system packages
+---
+
+- name: apt | update cache
+  sudo: true
+  apt:
+    update_cache: yes
+    cache_valid_time: 43200
+
+- name: apt | unnecessary system packages
+  sudo: true
+  apt:
+    pkg: "{{ item }}"
+    state: absent
+  with_items:
+    - chef
+    - puppet
+
+- name: apt | dist-upgrade
+  sudo: true
+  apt:
+    upgrade: full
+
+- name: apt | common system packages
+  sudo: true
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    install_recommends: no
+  with_items:
+    - build-essential
+    - dstat
+    - emacs
+    - figlet
+    - git
+    - htop
+    #- jq
+    - lsof
+    - lynx-cur
+    - mc
+    - mtr-tiny
+    - nano
+    - rsync
+    - software-properties-common
+    - sysstat
+    - tmux
+    - tree
+    - unp
+    - unzip
+    - vim
+    - zip
+    - zsh
+    #- zsh-lovers
+
+- name: apt | check removed
+  sudo: true
+  shell: apt-get -y --dry-run autoremove | grep -q "0 to remove"
+  args:
+    warn: no
+  register: check_autoremove
+  ignore_errors: True
+  changed_when: False
+  always_run: True
+
+- name: apt | remove packages
+  sudo: true
+  command: apt-get -y autoremove
+  when: "check_autoremove.rc != 0"
+
+- name: apt | clean
+  sudo: true
+  command: apt-get clean

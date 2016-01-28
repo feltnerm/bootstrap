@@ -1,0 +1,17 @@
+---
+
+- name: zeroconf | install
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - avahi-daemon
+    - avahi-autoipd
+
+- name: zeroconf | start service
+  become: true
+  service:
+    name: avahi-daemon
+    enabled: true
+    state: started

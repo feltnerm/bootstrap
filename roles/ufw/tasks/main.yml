@@ -1,0 +1,65 @@
+# todo:
+# - ipv6
+---
+
+- name: ufw | install
+  become: true
+  apt:
+    name: ufw
+    state: present
+
+- name: ufw | default deny all incoming
+  become: true
+  ufw:
+    state: enabled
+    direction: incoming
+    policy: deny
+
+- name: ufw | default allow all outgoing
+  become: true
+  ufw:
+    state: enabled
+    direction: outgoing
+    policy: allow 
+
+- name: ufw | allow ssh
+  become: true
+  ufw:
+    rule: limit
+    port: ssh
+    state: enabled
+    policy: deny
+
+- name: ufw | allow LAN (RFC1918)
+  become: true
+  ufw:
+    rule: allow
+    src: "{{ item }}"
+  with_items:
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/24
+    - fc00::/7
+
+- name: ufw | allow extra ports
+  become: true
+  ufw:
+    rule: allow
+    src: "{{ item }}"
+  with_items: ufw_allow_ports
+  when: ufw_allow_ports is defined
+
+- name: ufw | deny extra ports
+  become: true
+  ufw:
+    rule: deny
+    src: "{{ item }}"
+  with_items: ufw_deny_ports
+  when: ufw_deny_ports is defined
+
+- name: ufw | enable service
+  become: true
+  service:
+    name: ufw
+    state: started
+    enabled: yes

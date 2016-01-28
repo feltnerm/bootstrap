@@ -1,0 +1,12 @@
+username: 'pi'
+
+mopidy_server: false
+mopidy_configuration:
+  - section: http 
+    options:
+      - option: hostname
+        value: 0.0.0.0
+  - section: 
+    options:
+      - option: 
+        value:

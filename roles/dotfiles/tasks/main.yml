@@ -1,0 +1,31 @@
+---
+
+# - name: create dotfiles dir
+#   file:
+#     state: directory
+#     dest: "/home/{{ ansible_ssh_user }}/.dotfiles/"
+
+# - name: copy dotfiles
+#   copy:
+#     src: dotfiles/
+#     dest: "~/.dotfiles"
+
+#- name: unarchive dotfiles
+#  unarchive:
+#    src: dotfiles.zip 
+#    dest: "/home/{{ ansible_ssh_user }}/.dotfiles"
+
+# - name: clone dotfiles
+#  git: clone=yes dest=~/.dotfiles recursive=yes repo="git@github.com:feltnerm/dotfiles"
+
+- name: clone dotfiles
+ git: clone=yes dest=~/.dotfiles recursive=yes repo="https://github.com/feltnerm/dotfiles.git"
+
+- name: symlink dotfiles
+  file:
+    state: link 
+    force: yes
+    src: "{{ item }}"
+    dest: "~/.{{ item | basename }}"
+  with_fileglob:
+    - ~/.dotfiles/dotfiles/*

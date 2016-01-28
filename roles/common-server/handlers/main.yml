@@ -1,0 +1,7 @@
+---
+
+- name: common-server | restart networking
+  become: yes
+  service:
+    name: networking
+    state: restarted

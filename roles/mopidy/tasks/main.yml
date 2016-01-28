@@ -1,0 +1,77 @@
+---
+
+- name: mopidy | add repository apt-key
+  become: true
+  apt_key:
+    url: https://apt.mopidy.com/mopidy.gpg
+    state: present
+
+- name: mopidy | add repository
+  become: true
+  get_url:
+    backup: yes
+    force: yes
+    dest: /etc/apt/sources.list.d/mopidy.list
+    url: https://apt.mopidy.com/jessie.list 
+
+- name: mopidy | install 
+  become: true
+  apt:
+    name: mopidy
+    update_cache: yes
+    state: present
+
+- name: mopidy | install extensions
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - mopidy-alsamixer
+    - mopidy-scrobbler
+    - mopidy-soundcloud
+    - mopidy-youtube
+
+- name: mopidy | install extensions via pip
+  become: true
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - Mopidy-Moped
+    - Mopidy-SomaFM
+    - Mopidy-Local-SQLite
+    - Mopidy-InternetArchive
+
+- name: mopidy | configure (server)
+  become: true
+  ini_file:
+    backup: yes
+    dest: /etc/mopidy/mopidy.conf
+    section: "{{ item.0.section }}"
+    option: "{{ item.1.option }}"
+    value: "{{ item.1.value }}"
+  with_subelements:
+    - mopidy_configuration
+    - section.options
+    - skip_missing: yes
+  notify:
+    - Restart mopidy service
+  when: mopidy_server
+
+#- name: mopidy | scan for local music (server)
+#  become: true
+#  shell: "mopidyctl local scan"
+#  when: mopidy_server
+#
+#- name: mopidy | scan for local music (user)
+#  shell: "mopidy local scan"
+#  when: not mopdidy_server
+
+- name: mopidy | enable service
+  become: true
+  service:
+    name: mopidy
+    enabled: yes
+    state: started
+  when: mopidy_server

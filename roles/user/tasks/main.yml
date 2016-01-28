@@ -1,0 +1,21 @@
+---
+
+- name: user | create user
+  become: true
+  user:
+    name: "{{ username }}"
+    append: yes
+    createhome: yes
+    generate_ssh_key: yes
+    ssh_key_bits: 4096
+    ssh_key_comment: "{{ username }}@{{ ansible_fqdn }}"
+    shell: "{{ shell }}"
+    state: present
+
+- name: user | add groups
+  become: true
+  user:
+    name: "{{ username }}"
+    append: yes
+    groups: "{{ extra_groups | join(',', ) }}"
+  when: extra_groups is defined

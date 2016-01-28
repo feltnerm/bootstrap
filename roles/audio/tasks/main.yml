@@ -1,0 +1,8 @@
+---
+
+#include: alsa.yml
+- name: audio | codecs
+  become: true
+  apt:
+    name: ubuntu-restricted-extras
+    state: present

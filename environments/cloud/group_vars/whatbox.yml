@@ -1,0 +1,5 @@
+---
+
+rtorrent_files: ~/files
+rtorrent_watch: ~/watch
+rtorrent_finished: ~/finished

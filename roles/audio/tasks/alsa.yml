@@ -1,0 +1,7 @@
+---
+
+- name: alsa | turn mixer on
+  shell: "amixer -c 0 sset 'Master' on"
+
+# - name: alsa | max volume
+#   shell: ""

@@ -1,0 +1,50 @@
+# {{ ansible_managed }}
+
+[global]
+  # Server information
+  netbios name = {{ samba_netbios_name }}
+  workgroup = {{ samba_workgroup }}
+  server string = {{ samba_server_string }}
+
+  # Logging
+  syslog only = yes
+  syslog = 1
+
+  # Authentication
+  security = {{ samba_security }}
+  passdb backend = {{ samba_passdb_backend }}
+  map to guest = {{ samba_map_to_guest }}
+  guest account = nobody
+  encrypt passwords = true
+
+  # Name resolution
+  wins support = yes
+  local master = yes
+  domain master = yes
+  preferred master = yes
+
+  # Printing
+  load printers = no
+  disable spoolss = yes
+
+  mangled names = no
+
+{% if samba_shares is defined %}
+{% for share in samba_shares %}
+[{{ share.name }}]
+  {% if share.path is defined %}
+  path = {{ share.path }}
+  {% endif %}
+  public = {{ share.public | default('no') }}
+  read only = {{ share.readonly | default('no') }}
+  {% if share.force_group is defined %}
+  force group = {{ share.force_group }}
+  {% endif %}
+  create mask = {{ share.create_mask | default('0744') }}
+  directory mask = {{ share.directory_mask | default('0755') }}
+  read only = {{ share.read_only | default('yes') }}
+  browseable = {{ share.browseable | default('no') }}
+  guest only = {{ share.guest_only | default('no') }}
+  guest ok = {{ share.guest_ok | default('no') }}
+{% endfor %}
+{% endif%}

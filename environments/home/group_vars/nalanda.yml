@@ -1,0 +1,61 @@
+---
+
+username: 'mark'
+extra_groups:
+  - adm
+  - audio
+  - cdrom
+  - sudo
+
+stash: "/stash"
+
+ufw_allow_ports:
+  - 6880 # mpd
+
+mopidy_server: true
+mopidy_configuration:
+  - section: mpd
+    options:
+      - option: hostname
+        value: 0.0.0.0
+  - section: http 
+    options:
+      - option: hostname
+        value: 0.0.0.0
+  - section: file 
+    options:
+      - option: media_dirs
+        value: "{{ stash }}/library/music|Library"
+  - section: local
+    options:
+      - option: media_dir
+        value: "{{ stash }}/library/music"
+  - section: somafm
+    options:
+      - option: encoding
+        value: mp3
+      - option: quality
+        value: highest
+
+samba_shares:
+  - name: stash
+    path: "{{ stash }}/library"
+    public: yes
+    browseable: yes
+    read_only: no
+    force_group: users
+    directory_mask: 0775
+    create_mask: 0764
+  - name: uploads
+    path: "{{ stash }}/uploads/users"
+    public: yes
+    browseable: yes
+    read_only: no
+    guest_only: yes
+    guest_ok: yes
+    directory_mask: 0775
+    create_mask: 0764
+  - name: homes
+    comment: "Home Directories"
+    browseable: yes
+    read_only: no

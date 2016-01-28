@@ -1,0 +1,15 @@
+fellow_hosts:
+  - hostname: nalanda
+    address: 192.168.1.110
+  - hostname: soundpi 
+    address: 192.168.1.120
+  - hostname: mfeltner
+    address: 192.168.1.130
+  - hostname: markbook
+    address: 192.168.1.131
+  - hostname: Mark-PC 
+    address: 192.168.1.140
+
+external_hosts:
+  - hostname: whatbox
+    address: fennel.whatbox.ca
