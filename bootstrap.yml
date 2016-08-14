@@ -10,6 +10,7 @@
        when: ansible_os_family == 'Darwin'
      - role: user
      - role: dotfiles
+     - role: fish
 
 - hosts: soundpi 
   roles:
