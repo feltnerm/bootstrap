@@ -1,0 +1,9 @@
+---
+
+- name: user ownership
+  file:
+    state: directory 
+    recurse: yes
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    path: "/home/{{ user }}"

@@ -28,3 +28,8 @@
     - mopidy
     - ncmpcpp
     - samba
+
+- hosts: all
+  roles:
+    - permissions
+
