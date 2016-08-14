@@ -60,4 +60,40 @@ echo "## pwd"
 pwd
 echo "## pwd"
 
-ansible-playbook -i environments/local bootstrap.yml
+PROCEED=""
+if [[ -z "$BOOTSTRAP_USER" ]]; then
+    read -r -p "BOOTSTRAP_USER not found. Ok to proceed as $USER ?? [y/N] " \
+         PROCEED
+    while true; do
+        case "$PROCEED" in
+            'y')
+                BOOTSTRAP_USER="$USER"
+                break
+                ;;
+            'Y')
+              BOOTSTRAP_USER="$USER"
+              break
+              ;;
+            'n')
+              read -r -p "Enter username to bootstrap: " BOOTSTRAP_USER
+              break
+              ;;
+            'N')
+                read -r -p "Enter username to bootstrap: " BOOTSTRAP_USER
+                break
+                ;;
+            *)
+              read -r -p "BOOTSTRAP_USER not found. Ok to proceed as $USER ?? [y/N] " \
+                   PROCEED
+                ;;
+        esac
+    done
+fi
+
+[[ -z "$BOOTSTRAP_ROOT" ]] && BOOTSTRAP_ROOT="./"
+echo ">> Bootstrap root: '$BOOTSTRAP_ROOT'"
+echo ">> Ansible variable set: 'user: $BOOTSTRAP_USER'"
+ansible-playbook \
+    -e "user=$BOOTSTRAP_USER" \
+    -i "$BOOTSTRAP_ROOT"environments/local \
+    "$BOOTSTRAP_ROOT"bootstrap.yml
