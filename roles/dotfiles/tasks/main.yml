@@ -18,7 +18,7 @@
   shell: ./install chdir="{{ dotfiles_home }}"
   register: dotfiles_output
 
-- name: debug
+- name: dotbot output 
   debug:
     msg: "{{ item }}"
   with_items: "{{ dotfiles_output.stdout_lines }}"
