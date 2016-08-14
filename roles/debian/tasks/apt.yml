@@ -2,13 +2,13 @@
 ---
 
 - name: apt | update cache
-  sudo: true
+  become: true
   apt:
     update_cache: yes
     cache_valid_time: 43200
 
 - name: apt | unnecessary system packages
-  sudo: true
+  become: true
   apt:
     pkg: "{{ item }}"
     state: absent
@@ -16,13 +16,19 @@
     - chef
     - puppet
 
-- name: apt | dist-upgrade
-  sudo: true
+- name: apt | aptitude
+  become: true
   apt:
-    upgrade: full
+    pkg: 'aptitude'
+    state: present
+
+- name: apt | upgrade
+  become: true
+  apt:
+    upgrade: 'yes'
 
 - name: apt | common system packages
-  sudo: true
+  become: true
   apt:
     pkg: "{{ item }}"
     state: present
@@ -54,7 +60,7 @@
     #- zsh-lovers
 
 - name: apt | check removed
-  sudo: true
+  become: true
   shell: apt-get -y --dry-run autoremove | grep -q "0 to remove"
   args:
     warn: no
@@ -64,10 +70,10 @@
   always_run: True
 
 - name: apt | remove packages
-  sudo: true
+  become: true
   command: apt-get -y autoremove
   when: "check_autoremove.rc != 0"
 
 - name: apt | clean
-  sudo: true
+  become: true
   command: apt-get clean

@@ -13,3 +13,6 @@ fellow_hosts:
 external_hosts:
   - hostname: whatbox
     address: fennel.whatbox.ca
+
+environment_variables:
+  - configured_by: 'ansible'
