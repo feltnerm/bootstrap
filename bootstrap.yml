@@ -15,7 +15,6 @@
   roles:
     - rpi
     - common-server
-    - ufw
     - zeroconf
     - mopidy
     - ncmpcpp
@@ -24,7 +23,6 @@
   roles:
     #- nalanda # setup backup jobs, set /stash, etc.
     - common-server
-    - ufw
     - zeroconf
     - audio 
     - mopidy
