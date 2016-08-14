@@ -1,4 +1,6 @@
-username: 'pi'
+---
+
+user: 'pi'
 
 mopidy_server: false
 mopidy_configuration:

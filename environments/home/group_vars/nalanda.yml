@@ -1,6 +1,6 @@
 ---
 
-username: 'mark'
+user: 'mark'
 extra_groups:
   - adm
   - audio
