@@ -1,0 +1,16 @@
+---
+
+- name: shairplay | deps
+  apt:
+    state: present
+    install_recommends: no
+    pkg: "{{ item }}" 
+  with_items:
+    - alsa-utils
+
+- name: shairplay | install
+  apt:
+    state: present
+    install_recommends: no
+    pkg: shairplay
+      
