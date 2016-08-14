@@ -1,0 +1,14 @@
+---
+
+- name: setup macOS defaults
+  become: true
+  become_user: "{{ user }}"
+  copy:
+    src: macos
+    dest: /tmp/macos
+    mode: 0755
+
+- name: setup macOS defaults
+  become: true
+  become_user: "{{ user }}"
+  shell: /tmp/macos

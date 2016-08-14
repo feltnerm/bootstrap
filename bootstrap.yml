@@ -6,7 +6,7 @@
        when: ansible_os_family == 'Debian'
      - role: arch 
        when: ansible_os_family == 'Archlinux'
-     - role: osx 
+     - role: macos
        when: ansible_os_family == 'Darwin'
      - role: user
      - role: dotfiles

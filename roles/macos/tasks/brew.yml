@@ -1,0 +1,121 @@
+---
+
+- name: update and upgrade homebrew
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
+# @todo: add Brewfile (optional?)
+- name: tap
+  homebrew_tap:
+    state: present
+    tap: "{{ item }}"
+  with_items:
+    - caskroom/cask
+    - caskroom/fonts
+    - caskroom/versions
+    - homebrew/bundle
+    - homebrew/dupes
+    - homebrew/completions
+    - homebrew/services
+
+- name: install apps
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - ack
+    - bash
+    - coreutils
+    - cowsay
+    - curl
+    - docker
+    - exiftool
+    - ffmpeg
+    - figlet
+    - findutils
+    - fish
+    - flac
+    - fortune
+    - ghostscript
+    - git
+    - git-lfs
+    - graphviz
+    - homebrew/dupes/grep
+    - htop-osx
+    - imagemagick
+    - jq
+    - lsof
+    - lynx
+    - mc
+    - mtr
+    - ncdu
+    - ranger
+    - rsync
+    - surfraw
+    - tmux
+    - trash
+    - tree
+    - unzip
+    - vim
+    - wget
+
+- name: install completions
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - brew-cask-completion
+    - docker-compose-completion
+    - docker-machine-completion
+    - launchctl-completion
+    - open-completion
+    - pip-completion
+
+- name: install casks
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+    # @todo: re-add in ansible 2.2
+    # install_options: "appdir=/Applications"
+  with_items:
+    - caffeine
+    - cyberduck
+    - firefox
+    - google-chrome
+    - iterm2
+    - sequel-pro
+    - slack
+    - virtualbox
+    - virtualbox-extension-pack
+    - vlc
+
+- name: install quicklook plugins
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - qlcolorcode
+    - qlmarkdown
+    - quicklook-json
+    - quicklook-csv
+    - qlstephen
+
+- name: install fonts
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - font-sauce-code-powerline
+    - font-source-code-pro
+    - font-source-sans-pro
+    - font-source-serif-pro
+
+# - name: install casks apps
+#   homebrew:
+#     name: "{{ item }}"
+#     state: linked 
+#   with_items:
+#     - docker
+
+
