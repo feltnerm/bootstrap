@@ -1,0 +1,6 @@
+---
+
+user_editor: "vim"
+
+dotfiles_home: "/home/{{ user }}/.dotfiles"
+dotfiles_configuration_file: "/home/{{ user }}/.config/feltnerm/dotfiles/options.sh"
