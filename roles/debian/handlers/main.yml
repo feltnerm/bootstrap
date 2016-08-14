@@ -1,0 +1,6 @@
+---
+
+- name: command | reconfigure timezone data
+  become: true
+  command: dpkg-reconfigure --frontend noninteractive tzdata
+  when: configure_time_zone.changed

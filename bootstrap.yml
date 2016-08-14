@@ -11,6 +11,9 @@
      - role: user
      - role: dotfiles
      - role: fish
+  vars:
+    - locale: 'en_US.UTF-8'
+    - time_zone: 'US/Central'
 
 - hosts: soundpi 
   roles:
