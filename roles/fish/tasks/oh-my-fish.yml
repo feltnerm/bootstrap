@@ -12,9 +12,9 @@
   become_user: "{{ user }}"
   file:
     state: absent
-    path: "/home/{{ user }}/.local/share/omf"
+    path: "{{ user_home }}/.local/share/omf"
 
 - name: install oh-my-fish
   become: true
   become_user: "{{ user }}"
-  shell: "fish /tmp/fish-installer --noninteractive --path=/home/{{ user }}/.local/share/omf --config=/home/{{ user }}/.config/omf 2> /dev/null"
+  shell: "fish /tmp/fish-installer --noninteractive --path={{ user_home }}/.local/share/omf --config={{ user_home }}/.config/omf 2> /dev/null"

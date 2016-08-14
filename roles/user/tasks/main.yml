@@ -29,3 +29,25 @@
     append: yes
     groups: "{{ extra_groups | join(',', ) }}"
   when: extra_groups is defined
+
+- name: groups on macOS
+  become: true
+  user:
+    name: "{{ user }}"
+    append: yes
+    groups: "staff,admin"
+  when: ansible_os_family == 'Darwin'
+
+- name: set ~ on macos
+  set_fact:
+    user_home: "/Users/{{ user }}"
+  when: ansible_os_family == 'Darwin'
+
+- name: set ~ on *nix
+  set_fact:
+    user_home: "/home/{{ user }}"
+  when: ansible_os_family != 'Darwin'
+
+- name: debug user ~
+  debug:
+    var: user_home
