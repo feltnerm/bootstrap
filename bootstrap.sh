@@ -15,6 +15,7 @@ function arch() {
 function ubuntu() {
     hash apt-get &>/dev/null || (echo 'apt-get is missing.' && exit)
     sudo apt-get update
+    sudo apt-get -y upgrade
     local INSTALL_COMMAND='sudo apt-get -y install'
     $INSTALL_COMMAND build-essential git python python-dev python-pip ansible
     sudo pip install pip --upgrade
