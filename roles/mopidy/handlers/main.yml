@@ -1,7 +1,7 @@
 ---
 
 - name: Restart mopidy service
-  sudo: true
+  become: true
   service:
     name: mopidy
     state: restarted

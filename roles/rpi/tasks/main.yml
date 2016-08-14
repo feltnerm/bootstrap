@@ -1,5 +1,5 @@
 ---
 
 - name: rpi | update firmware
-  sudo: true
+  become: true
   shell: "rpi-update"
