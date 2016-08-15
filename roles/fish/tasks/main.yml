@@ -1,4 +1,4 @@
 ---
 
 - include: oh-my-fish.yml
-#- include: time.yml
+- include: oh-my-fish-plugins.yml

@@ -1,0 +1,45 @@
+---
+
+- name: install plugins
+  become: true
+  become_user: "{{ user }}"
+  shell: "omf install {{ item }}"   
+  args:
+    executable: fish
+  with_items:
+    - ansible
+    - bang-bang
+    - docker-machine
+    - extract
+    - hash
+    - nvm
+    - python
+    - vi-mode
+    - virtualfish
+    - weather
+  ignore_errors: yes
+
+
+- name: install debian-specific plugins
+  become: true
+  become_user: "{{ user }}"
+  shell: "omf install {{ item }}"   
+  args:
+    executable: fish
+  with_items:
+    - apt
+  when: ansible_os_family == 'Debian'
+  ignore_errors: yes
+
+- name: install macOS-specific plugins
+  become: true
+  become_user: "{{ user }}"
+  shell: "omf install {{ item }}"   
+  args:
+    executable: fish
+  with_items:
+    - brew
+    - cask
+    - osx
+  when: ansible_os_family == 'Darwin'
+  ignore_errors: yes
