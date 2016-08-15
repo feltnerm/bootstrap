@@ -1,10 +1,12 @@
 ---
 
+# @todo: not sure how i feel about downloading this and
+# running it as `sudo`
 - name: setup macOS defaults
   become: true
   become_user: "{{ user }}"
-  copy:
-    src: macos
+  get_url:
+    url: https://raw.githubusercontent.com/feltnerm/dotfiles/master/.macos
     dest: /tmp/macos
     mode: 0755
 
@@ -12,3 +14,20 @@
   become: true
   become_user: "{{ user }}"
   shell: /tmp/macos
+
+# any overrides for  the .macos script should go here so they're documented
+- name: set macOS defaults user overrides
+  become: true
+  become_user: "{{ user }}"
+  osx_defaults:
+    domain: "{{ item.domain }}" 
+    key: "{{ item.key }}"
+    type: "{{ item.type }}"
+    value:  "{{ item.value }}"
+  with_items: "{{ osx_default_overrides }}"
+
+- name: set timezone
+  become: true
+  become_user: "{{ user }}"
+  shell: systemsetup -settimezone "{{ time_zone }}" > /dev/null
+

@@ -1,0 +1,18 @@
+---
+
+# any overrides for  the .macos script should go here so they're documented
+osx_default_overrides:
+  - domain: NSGlobalDomain
+    key: AppleHighlightColor
+    type: string
+    value: "0.764700 0.976500 0.568600"
+  # Set language and text formats
+  - domain: NSGlobalDomain
+    key: AppleLocale
+    type: string
+    value: "en_US@currency=USD"
+  # # comment
+  # - domain:
+  #   key:
+  #   type:
+  #   value:
