@@ -17,6 +17,7 @@
      - role: emacs
      - role: dropbox
      - role: go
+     - role: java
   vars:
     - locale: 'en_US.UTF-8'
     - time_zone: 'US/Central'
