@@ -1,0 +1,6 @@
+---
+
+- name: debian | install go
+  apt:
+    name: go
+    state: present

@@ -1,0 +1,6 @@
+---
+
+- name: macOS | install go
+  homebrew:
+    name: go
+    state: present

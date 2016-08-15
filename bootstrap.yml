@@ -16,6 +16,7 @@
      - role: neovim
      - role: emacs
      - role: dropbox
+     - role: go
   vars:
     - locale: 'en_US.UTF-8'
     - time_zone: 'US/Central'
