@@ -13,6 +13,7 @@
      - role: dotfiles
      - role: fish
      - role: vim
+     - role: neovim
   vars:
     - locale: 'en_US.UTF-8'
     - time_zone: 'US/Central'

@@ -1,0 +1,6 @@
+---
+
+- name: install emacs
+  apt:
+    name: emacs
+    state: present

@@ -1,0 +1,13 @@
+---
+
+- name: tap emacs task
+  homebrew_tap:
+    tap: d12frosted/emacs-plus
+    state: present
+
+- name: install emacs
+  homebrew:
+    name: emacs-plus
+    # @todo: fix in ansible 2.2
+    # install_options: --with-cocoa --with-gnutls --with-librsvg --with-imagemagick --with-spacemacs-icon
+    state: present
