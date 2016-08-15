@@ -82,10 +82,17 @@
     - caffeine
     - cyberduck
     - firefox
+    - flux
     - google-chrome
     - iterm2
+    - lastfm
+    - lastpass
     - sequel-pro
     - slack
+    - spotify
+    - spectacle
+    - spotify-notifications
+    - tunnelblick
     - virtualbox
     - virtualbox-extension-pack
     - vlc
@@ -106,6 +113,14 @@
     name: "{{ item }}"
     state: present
   with_items:
+    - font-inconsolata-dz-for-powerline
+    - font-meslo-lg-for-powerline
+    - font-anonymous-pro-for-powerline
+    - font-consolas-for-powerline
+    - font-dejavu-sans-mono-for-powerline
+    - font-droid-sans-mono-for-powerline
+    - font-fira-mono-for-powerline
+    - font-meslo-lg-for-powerline
     - font-sauce-code-powerline
     - font-source-code-pro
     - font-source-sans-pro
