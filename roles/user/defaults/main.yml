@@ -1,7 +1,5 @@
 ---
 
-user_shell: "fish"
-
 xdg_directories:
   XDG_DESKTOP_DIR: "/home/{{ user }}/desktop"
   XDG_DOWNLOAD_DIR: "/home/{{ user }}/downloads"
