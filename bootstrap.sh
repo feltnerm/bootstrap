@@ -30,7 +30,7 @@ function brew_for_multiple_users() {
 
 function osx() {
     xcode-select --install
-    hash brew &>/dev/null && echo "brew found" || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    hash brew &>/dev/null || (echo 'brew is missing' && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)")
     brew_for_multiple_users
     brew doctor
     brew update
