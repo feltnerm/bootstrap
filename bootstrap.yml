@@ -14,7 +14,6 @@
      - role: fish
      - role: vim
      - role: neovim
-     - role: emacs
      - role: dropbox
      - role: go
      - role: java
