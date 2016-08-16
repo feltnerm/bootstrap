@@ -2,5 +2,5 @@
 
 - name: debian | install go
   apt:
-    name: go
+    name: golang
     state: present
