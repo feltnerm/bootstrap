@@ -42,6 +42,7 @@
     - git
     - htop
     - jq
+    - keychain
     - lsof
     - lynx-cur
     - mc

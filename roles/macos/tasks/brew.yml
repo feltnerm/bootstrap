@@ -45,6 +45,8 @@
     - htop-osx
     - imagemagick
     - jq
+    - keybase
+    - keychain
     - lsof
     - lynx
     - mc
