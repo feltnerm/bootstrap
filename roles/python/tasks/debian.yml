@@ -2,7 +2,7 @@
 
 - name: install pypy repository
   apt_repository:
-    repp: ppa:pypy/ppa
+    repo: ppa:pypy/ppa
     state: present
 
 - name: install pypy
