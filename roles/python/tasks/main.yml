@@ -32,6 +32,9 @@
     - [ 'python' ]
     - [ '' ]
 
+- name: easy_install pip
+  shell: easy_install pip
+
 - name: Install pip tools
   pip:
     name: "{{ item[1] }}"
