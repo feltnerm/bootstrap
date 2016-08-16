@@ -50,3 +50,20 @@
   when: ansible_os_family == 'Debian'
 - include: 'macos.yml'
   when: ansible_os_family == 'Darwin'
+
+- name: install global npm packages
+  become: true
+  become_user: "{{ user }}"
+  shell: "npm install -g {{ item }}"
+  args:
+    executable: "{{ fish_path.stdout }}"
+  with_items:
+    - emoj
+    - eslint
+    - eslint-config-standard
+    - eslint-config-standard-react
+    - eslint-plugin-react
+    - eslint-plugin-standard
+    - nyancat
+    - standard
+    - wifi-password
