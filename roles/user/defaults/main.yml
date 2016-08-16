@@ -1,11 +1,19 @@
 ---
 
 xdg_directories:
-  XDG_DESKTOP_DIR: "/home/{{ user }}/desktop"
-  XDG_DOWNLOAD_DIR: "/home/{{ user }}/downloads"
-  XDG_MUSIC_DIR: "/home/{{ user }}/music"
-  XDG_VIDEOS_DIR: "/home/{{ user }}/videos"
-  XDG_PUBLICSHARE_DIR: "/home/{{ user }}/shared"
-  XDG_DOCUMENTS_DIR: "/home/{{ user }}/docs"
-  XDG_PICTURES_DIR: "/home/{{ user }}/pics"
+  XDG_DESKTOP_DIR: "{{ user_home }}/desktop"
+  XDG_DOCUMENTS_DIR: "{{ user_home }}/docs"
+  XDG_DOWNLOAD_DIR: "{{ user_home }}/downloads"
+  XDG_MUSIC_DIR: "{{ user_home }}/music"
+  XDG_PICTURES_DIR: "{{ user_home }}/pics"
+  XDG_PUBLICSHARE_DIR: "{{ user_home }}/shared"
+  XDG_VIDEOS_DIR: "{{ user_home }}/videos"
 
+xdg_directories_mac:
+  XDG_DESKTOP_DIR: "{{ user_home }}/Desktop"
+  XDG_DOCUMENTS_DIR: "{{ user_home }}/Documents"
+  XDG_DOWNLOAD_DIR: "{{ user_home }}/Downloads"
+  XDG_MUSIC_DIR: "{{ user_home }}/Music"
+  XDG_PUBLICSHARE_DIR: "{{ user_home }}/Public"
+  XDG_PICTURES_DIR: "{{ user_home }}/Pictures"
+  XDG_VIDEOS_DIR: "{{ user_home }}/Movies"
