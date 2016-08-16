@@ -1,0 +1,17 @@
+---
+
+- name: get rust installer
+  get_url:
+    url: "https://static.rust-lang.org/rustup.sh"
+    dest: /tmp/rustup.sh
+    mode: 0775
+
+- name: run rust installer
+  shell: "/tmp/rustup.sh"
+
+- include: 'arch.yml'
+  when: ansible_os_family == 'Archlinux'
+- include: 'debian.yml'
+  when: ansible_os_family == 'Debian'
+- include: 'macos.yml'
+  when: ansible_os_family == 'Darwin'
