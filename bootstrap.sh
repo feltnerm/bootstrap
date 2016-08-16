@@ -57,10 +57,6 @@ case $(uname) in
             esac
 esac
 
-echo "## pwd"
-pwd
-echo "## pwd"
-
 if [[ -z "$BOOTSTRAP_USER" ]]; then
     BOOTSTRAP_USER="$USER"
 fi
