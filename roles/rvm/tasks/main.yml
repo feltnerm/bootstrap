@@ -9,6 +9,5 @@
     mode: 0775
 
 - name: install rvm
-  become: true
   become_user: "{{ user }}"
   shell: /tmp/rvm --ruby
