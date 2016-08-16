@@ -28,6 +28,5 @@
 
 - name: set timezone
   become: true
-  become_user: "{{ user }}"
-  shell: systemsetup -settimezone "{{ time_zone }}" > /dev/null
+  shell: systemsetup -settimezone "{{ mac_time_zone }}" > /dev/null
 
