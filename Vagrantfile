@@ -7,10 +7,6 @@ Vagrant.configure(2) do |config|
   #   arch.vm.box = "terrywang/archlinux"
   # end
 
-  # config.vm.define "ubuntu" do |ubuntu|
-  #   ubuntu.vm.box = "ubuntu/xenial64"
-  # end
-
   config.vm.define "osx" do |osx|
     osx.vm.box = "osx"
     # Use NFS for the shared folder
@@ -22,10 +18,14 @@ Vagrant.configure(2) do |config|
                          :mount_options => ['nolock,vers=3,udp,noatime']
   end
 
-  # install virtualbox-guest-utils until xenial box is patched
-  # config.vm.synced_folder ".", "/vagrant", disabled: false
-  # config.vm.provision "shell",
-  #                     inline: "sudo apt-get --no-install-recommends install virtualbox-guest-utils"
+  config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "ubuntu/xenial64"
+    # install virtualbox-guest-utils until xenial box is patched
+    ubuntu.vm.provision "shell",
+                        inline: "sudo apt-get --no-install-recommends install virtualbox-guest-utils"
+    ubuntu.vm.synced_folder ".", "/vagrant", disabled: false
+  end
+
   config.vm.provision "shell",
                       path: "bootstrap.sh",
                       env: {
