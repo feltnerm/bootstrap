@@ -1,20 +1,17 @@
 ---
 
 - name: download oh-my-fish
-  become: true
   become_user: "{{ user }}"
   get_url:
     url: "https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install"
     dest: "/tmp/fish-installer"
 
 - name: remove existing oh-my-fish install
-  become: true
   become_user: "{{ user }}"
   file:
     state: absent
     path: "{{ user_home }}/.local/share/omf"
 
 - name: install oh-my-fish
-  become: true
   become_user: "{{ user }}"
   shell: "fish /tmp/fish-installer --noninteractive --path={{ user_home }}/.local/share/omf --config={{ user_home }}/.config/omf 2> /dev/null"
