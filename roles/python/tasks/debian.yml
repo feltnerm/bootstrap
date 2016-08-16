@@ -19,8 +19,8 @@
 - name: install python and python-dev
   become: true
   apt:
-    name: "{{ item[0] }}{{ item[1] }}"
+    name: "python{{ item[1] }}{{ item[0] }}"
     state: present
   with_nested:
-    - [ 'python', 'python-dev']
-    - [ 3, 2 ]
+    - [ '', '-dev']
+    - [ '3', '' ]

@@ -32,14 +32,14 @@
     - [ 'python' ]
     - [ '' ]
 
-- name: Install pip tools
-  pip:
-    name: "{{ item[1] }}"
-    executable: "pip{{ item[0] }}"
-    state: present
-  with_nested:
-    - [ '' ]
-    - [ 'wheel', 'certifi', 'pyopenssl', 'pyasn1', 'ndg-httpsclient' ]
+# - name: Install pip tools
+#   pip:
+#     name: "{{ item[1] }}"
+#     executable: "pip{{ item[0] }}"
+#     state: present
+#   with_nested:
+#     - [ '' ]
+#     - [ 'wheel', 'certifi', 'pyopenssl', 'pyasn1', 'ndg-httpsclient' ]
 
 - name: install Python tools
   pip:
