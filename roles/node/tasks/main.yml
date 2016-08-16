@@ -1,0 +1,52 @@
+---
+
+- name: get nvm
+  become: true
+  become_user: "{{ user }}"
+  get_url:
+    url: https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh
+    dest: /tmp/nvm-install
+    mode: 0755
+
+- name: get fish path
+  become: true
+  become_user: "{{ user }}"
+  shell: which fish
+  register: fish_path
+
+- name: install nvm
+  become: true
+  become_user: "{{ user }}"
+  shell: /tmp/nvm-install
+
+- name: install node(s)
+  become: true
+  become_user: "{{ user }}"
+  shell: "nvm install {{ item }}"
+  args:
+    executable: "{{ fish_path.stdout }}"
+  with_items:
+    - 4
+    - 5
+    - 6
+
+- name: set current node version
+  become: true
+  become_user: "{{ user }}"
+  shell: nvm use 5
+  args:
+    executable: "{{ fish_path.stdout }}"
+
+- name: set system node version
+  become: true
+  become_user: "{{ user }}"
+  shell: nvm alias default 5
+  args:
+    executable: "{{ fish_path.stdout }}"
+
+- include: 'arch.yml'
+  when: ansible_os_family == 'Archlinux'
+- include: 'debian.yml'
+  when: ansible_os_family == 'Debian'
+- include: 'macos.yml'
+  when: ansible_os_family == 'Darwin'
