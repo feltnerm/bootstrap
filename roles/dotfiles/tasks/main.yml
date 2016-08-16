@@ -1,6 +1,7 @@
 ---
 
 - name: clone dotfiles
+  become: true
   become_user: "{{ user }}"
   git:
     repo: "https://github.com/feltnerm/dotfiles.git"
@@ -12,6 +13,7 @@
     recursive: yes
 
 - name: install dotfiles
+  become: true
   become_user: "{{ user }}"
   shell: ./install chdir="{{ dotfiles_home }}"
   register: dotfiles_output
