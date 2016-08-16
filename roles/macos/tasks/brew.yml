@@ -115,13 +115,12 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - font-inconsolata-dz-for-powerline
-    - font-meslo-lg-for-powerline
     - font-anonymous-pro-for-powerline
     - font-consolas-for-powerline
     - font-dejavu-sans-mono-for-powerline
     - font-droid-sans-mono-for-powerline
     - font-fira-mono-for-powerline
+    - font-inconsolata-dz-for-powerline
     - font-meslo-lg-for-powerline
     - font-sauce-code-powerline
     - font-source-code-pro
