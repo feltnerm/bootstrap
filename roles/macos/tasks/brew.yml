@@ -47,6 +47,7 @@
     - jq
     - keybase
     - keychain
+    - lnav
     - lsof
     - lynx
     - mc
