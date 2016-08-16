@@ -55,6 +55,7 @@
     - ncdu
     - ranger
     - rsync
+    - shellcheck
     - surfraw
     - tmux
     - trash
