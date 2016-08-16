@@ -20,6 +20,7 @@
      - role: python
      - role: node
      - role: rust
+     - role: rvm
   vars:
     - locale: 'en_US.UTF-8'
     - time_zone: 'US/Central'

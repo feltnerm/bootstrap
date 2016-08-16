@@ -6,7 +6,7 @@
   get_url:
     url: https://get.rvm.io
     dest: /tmp/rvm
-    chmod: 0775
+    mode: 0775
 
 - name: install rvm
   become: true
