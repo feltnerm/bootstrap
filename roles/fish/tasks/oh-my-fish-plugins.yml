@@ -15,6 +15,7 @@
     - nvm
     - python
     - rvm
+    # - tmux-zen
     - vi-mode
     - virtualfish
     - weather
