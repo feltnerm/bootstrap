@@ -49,6 +49,7 @@
     name: "{{ item }}"
     state: latest
   with_items:
+    - glances
     - pbr
     - pydf
     - tox
