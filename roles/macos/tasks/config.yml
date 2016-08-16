@@ -5,7 +5,7 @@
 - name: download macOS defaults script
   become_user: "{{ user }}"
   get_url:
-    url: https://raw.githubusercontent.com/feltnerm/dotfiles/master/.macos
+    url: https://raw.githubusercontent.com/mathiasbynens/dotfiles/master/.macos
     dest: /tmp/macos
     mode: 0755
 
