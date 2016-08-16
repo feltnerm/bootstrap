@@ -6,10 +6,3 @@
   when: ansible_os_family == 'Debian'
 - include: 'macos.yml'
   when: ansible_os_family == 'Darwin'
-
-- name: install go command line utilities
-  shell: "go get {{ item }}"
-  with_items:
-    - golint
-    - gorename
-    - gotags
