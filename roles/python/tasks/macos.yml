@@ -1,0 +1,17 @@
+---
+
+- name: install python
+  homebrew:
+    name: "{{ item[0] }}{{ item[1] }}"
+    state: present
+  with_nested:
+    - [ 'python']
+    - [ '', '3' ]
+
+- name: install pypy
+  homebrew:
+    name: "{{ item[0] }}{{ item[1] }}"
+    state: present
+  with_nested:
+    - [ 'pypy']
+    - [ '', '3' ]

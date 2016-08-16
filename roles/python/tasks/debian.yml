@@ -1,0 +1,23 @@
+---
+
+- name: install pypy repository
+  apt_repository:
+    repp: ppa:pypy/ppa
+    state: present
+
+- name: install pypy
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - pypy
+    - pypy-dev
+    - python-cffi
+
+- name: install python and python-dev
+  apt:
+    name: "{{ item[0] }}{{ item[1] }}"
+    state: present
+  with_nested:
+    - [ 'python', 'python-dev']
+    - [ 3, 2 ]
