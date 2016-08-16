@@ -1,11 +1,13 @@
 ---
 
 - name: add ppa
+  become: true
   apt_repository:
     repo: ppa:webupd8team/java
     update_cache: yes
 
 - name: install java
+  become: true
   apt:
     name: oracle-java8-installer
     state: present

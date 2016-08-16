@@ -1,11 +1,13 @@
 ---
 
 - name: install pypy repository
+  become: true
   apt_repository:
     repo: ppa:pypy/ppa
     state: present
 
 - name: install pypy
+  become: true
   apt:
     name: "{{ item }}"
     state: latest
@@ -15,6 +17,7 @@
     - python-cffi
 
 - name: install python and python-dev
+  become: true
   apt:
     name: "{{ item[0] }}{{ item[1] }}"
     state: present

@@ -1,8 +1,10 @@
 ---
 - name: Ensure apt-transport-https is installed.
+  become: true
   apt: name=apt-transport-https state=present
 
 - name: Add Nodesource apt key.
+  become: true
   apt_key:
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
     state: present
