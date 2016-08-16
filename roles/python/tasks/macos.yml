@@ -6,7 +6,7 @@
     state: present
   with_nested:
     - [ 'python']
-    - [ '', '3' ]
+    - [ '3', '' ]
 
 - name: install pypy
   homebrew:
@@ -14,4 +14,4 @@
     state: present
   with_nested:
     - [ 'pypy']
-    - [ '', '3' ]
+    - [ '3', '' ]
