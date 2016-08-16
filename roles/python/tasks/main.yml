@@ -47,6 +47,7 @@
     state: latest
   with_items:
     - pbr
+    - pydf
     - tox
     - virtualenv
     - virtualfish
