@@ -38,6 +38,7 @@ function osx() {
     brew install python --framework --with-brewed-openssl
     sudo easy_install pip
     brew install ansible
+    brew install caskroom/cask/brew-cask
 }
 
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
