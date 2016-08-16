@@ -29,7 +29,6 @@
     - coreutils
     - cowsay
     - curl
-    - docker
     - exiftool
     - ffmpeg
     - figlet
@@ -86,6 +85,7 @@
   with_items:
     - caffeine
     - cyberduck
+    - docker-toolbox
     - firefox
     - flux
     - google-chrome
