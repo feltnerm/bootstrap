@@ -4,3 +4,14 @@
   homebrew:
     name: neovim/neovim/neovim
     state: present
+
+- name: tap neovim.app cask
+  homebrew_tap:
+      tap: rogual/neovim-dot-app
+      state: present
+
+:# @todo: requires full XCode install?!?!?
+#- name: install neovim
+#  homebrew:
+#      name: neovim-dot-app
+#      state: present
