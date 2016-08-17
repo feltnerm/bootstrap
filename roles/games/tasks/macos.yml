@@ -1,0 +1,24 @@
+- name: minecraft
+  homebrew_cask:
+      name: minecraft
+      state: present
+
+- name: steam
+  homebrew_cask:
+      name: steam
+      state: present
+
+- name: zdoom
+  homebrew_cask:
+      name: zdoom
+      state: present
+
+#- name: doom shareware iwads
+#  get_url:
+#      url: "http://www.doomworld.com/3ddownloads/ports/shareware_doom_iwad.zip"
+#      dest: /tmp/shareware_doom_iwad.zip
+
+#- name: unzip doom shareware iwads
+#  unzip:
+#      src: /tmp/shareware_doom_iwad.zip
+#      dest: "{{ user_home }}/Library/Application\ Support/zdoom/""
