@@ -1,0 +1,9 @@
+---
+
+- name: create code directory
+  become: true
+  become_user: "{{ user }}"
+  file:
+      path: "{{ user_home }}/code"
+      state: directory
+

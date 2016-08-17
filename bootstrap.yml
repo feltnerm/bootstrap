@@ -22,6 +22,7 @@
      - role: vim
      - role: neovim
      - role: games
+     - role: dev-env
   vars:
     - locale: 'en_US.UTF-8'
     - time_zone: 'US/Central'
