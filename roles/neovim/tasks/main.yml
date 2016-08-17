@@ -6,3 +6,25 @@
   when: ansible_os_family == 'Debian'
 - include: 'macos.yml'
   when: ansible_os_family == 'Darwin'
+
+
+# ln -s ~/.vim ~/.config/nvim
+- name: link vim folder
+  file:
+      state: link
+      src: "{{ user_home }}/.vim"
+      dest: "{{ user_home }}/.config/nvim"
+
+# ln -s ~/.vimrc ~/.config/nvim/init.vim
+- name: link vimrc
+  file:
+      state: link
+      src: "{{ user_home }}/.vimrc"
+      dest: "{{ user_home }}/.config/nvim/init.vim"
+
+- name: neovim python support
+  become: true
+  become_user: "{{ user }}"
+  pip:
+    name: "neovim"
+    state: latest
