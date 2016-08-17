@@ -24,7 +24,7 @@
 
 - name: neovim python support
   become: true
-  become: "{{ user }}"
+  become_user: "{{ user }}"
   pip:
     name: "neovim"
     state: latest
