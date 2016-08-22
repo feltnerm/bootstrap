@@ -29,6 +29,7 @@
     - coreutils
     - cowsay
     - curl
+    - docker-machine-driver-xhyve
     - exiftool
     - ffmpeg
     - figlet
