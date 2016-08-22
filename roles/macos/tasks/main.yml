@@ -2,3 +2,4 @@
 
 - include: "brew.yml"
 - include: "config.yml"
+- include: "iterm2.yml"
