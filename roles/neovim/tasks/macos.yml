@@ -10,7 +10,7 @@
       tap: rogual/neovim-dot-app
       state: present
 
-:# @todo: requires full XCode install?!?!?
+# @todo: requires full XCode install?!?!?
 #- name: install neovim
 #  homebrew:
 #      name: neovim-dot-app

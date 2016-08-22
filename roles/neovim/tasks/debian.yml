@@ -3,11 +3,11 @@
 - name: add neovim repository
   become: true
   apt_repository:
-    repo: ppa:neovim-ppa/unstable
-    update_cache: yes
+      repo: "ppa:neovim-ppa/unstable"
+      update_cache: yes
 
 - name: install neovim
   become: true
   apt:
-    name: neovim
-    state: present
+      name: neovim
+      state: present
