@@ -11,6 +11,7 @@
     - bang-bang
     - docker-machine
     - extract
+    - foreign-env
     - hash
     - nvm
     - python
