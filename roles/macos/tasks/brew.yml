@@ -61,7 +61,6 @@
     - trash
     - tree
     - unzip
-    - vim
     - wget
 
 - name: install completions

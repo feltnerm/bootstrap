@@ -1,0 +1,7 @@
+---
+
+- name: install vim
+  become: true
+    apt:
+      state: present
+      pkg: vim

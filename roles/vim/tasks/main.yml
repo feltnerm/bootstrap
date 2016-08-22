@@ -1,5 +1,12 @@
 ---
 
+- include: 'arch.yml'
+  when: ansible_os_family == 'Archlinux'
+- include: 'debian.yml'
+  when: ansible_os_family == 'Debian'
+- include: 'macos.yml'
+  when: ansible_os_family == 'Darwin'
+
 - name: install Vundle
   become: yes
   become_user: "{{ user }}"

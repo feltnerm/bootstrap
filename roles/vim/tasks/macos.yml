@@ -1,0 +1,8 @@
+---
+
+- name: install apps
+  homebrew:
+    name: vim
+    options: with-lua
+    state: present
+
