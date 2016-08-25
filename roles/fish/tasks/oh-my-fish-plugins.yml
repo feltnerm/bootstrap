@@ -20,6 +20,7 @@
     - vi-mode
     - virtualfish
     - weather
+    - git@github.com:mgoodness/plugin-asp.git
   ignore_errors: yes
 
 
