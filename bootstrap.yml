@@ -17,6 +17,7 @@
      - role: java
      - role: python
      - role: node
+     - role: ruby
      - role: rust
      - role: vim
      - role: neovim
