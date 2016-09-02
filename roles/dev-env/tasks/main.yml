@@ -7,3 +7,7 @@
       path: "{{ user_home }}/code"
       state: directory
 
+- include: "python.yml"
+- include: "node.yml"
+- include: "rust.yml"
+- include: "rvm.yml"

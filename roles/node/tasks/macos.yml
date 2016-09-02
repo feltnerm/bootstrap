@@ -1,0 +1,6 @@
+---
+
+- name: install node
+  homebrew:
+    name: node
+    state: present

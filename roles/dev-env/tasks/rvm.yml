@@ -11,3 +11,4 @@
 - name: install rvm
   become_user: "{{ user }}"
   shell: /tmp/rvm --ruby
+
