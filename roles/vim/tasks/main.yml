@@ -21,4 +21,4 @@
 - name: install vundle plugins
   become: yes
   become_user: "{{ user }}"
-  shell: "vim +PluginInstall +qall"
+  shell: "vim +PlugInstall! +qall"
