@@ -15,8 +15,8 @@
      - role: dropbox
      - role: go
      - role: java
-     - role: python
      - role: node
+     - role: python
      - role: ruby
      - role: rust
      - role: vim
