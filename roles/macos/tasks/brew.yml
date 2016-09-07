@@ -53,6 +53,7 @@
     - mc
     - mtr
     - ncdu
+    - pt
     - ranger
     - rsync
     - shellcheck
