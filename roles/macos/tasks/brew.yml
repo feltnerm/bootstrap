@@ -71,7 +71,6 @@
   with_items:
     - brew-cask-completion
     - docker-compose-completion
-    - docker-machine-completion
     - launchctl-completion
     - open-completion
     - pip-completion
