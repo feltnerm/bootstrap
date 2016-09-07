@@ -3,13 +3,14 @@
 - hosts: all
   roles:
      - role: common
+     - role: user
      - role: debian
        when: ansible_os_family == 'Debian'
      - role: arch 
        when: ansible_os_family == 'Archlinux'
      - role: macos
        when: ansible_os_family == 'Darwin'
-     - role: user
+     - role: shell
      - role: dotfiles
      - role: fish
      - role: dropbox

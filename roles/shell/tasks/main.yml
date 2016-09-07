@@ -1,0 +1,20 @@
+---
+
+- include: 'arch.yml'
+  when: ansible_os_family == 'Archlinux'
+- include: 'debian.yml'
+  when: ansible_os_family == 'Debian'
+- include: 'macos.yml'
+  when: ansible_os_family == 'Darwin'
+
+- name: shell | get shell absolute path
+  shell: "which {{ user_shell }}"
+  register: shell_path
+
+
+- name: user | set shell
+  become: true
+  user:
+    name: "{{ user }}"
+    shell: "{{ shell_path.stdout }}"
+
