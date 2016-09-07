@@ -22,3 +22,8 @@
 #  unzip:
 #      src: /tmp/shareware_doom_iwad.zip
 #      dest: "{{ user_home }}/Library/Application\ Support/zdoom/""
+
+- name: dwarf fortress
+  homebrew_cask:
+      name: dwarf-fortress-lnp
+      state: present
