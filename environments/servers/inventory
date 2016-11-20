@@ -1,0 +1,15 @@
+[nalanda]
+192.168.1.110 ansible_user=mark
+
+[soundpi]
+192.168.1.120 ansible_user=mark
+
+[whatbox]
+ulysses.whatbox.ca ansible_user=plugitin
+
+[cloud:children]
+whatbox
+
+[home:children]
+nalanda
+soundpi
