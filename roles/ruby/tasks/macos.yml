@@ -1,6 +1,6 @@
 ---
 
-- name: install node
+- name: install ruby
   homebrew:
-    name: node
+    name: ruby
     state: present

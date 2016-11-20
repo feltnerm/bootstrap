@@ -1,0 +1,51 @@
+---
+
+- name: get pip installer
+  get_url:
+    url: "https://bootstrap.pypa.io/get-pip.py"
+    dest: /tmp/get-pip.py
+    mode: 0755
+
+- name: Download ez_setup.py
+  get_url:
+    url: "https://bootstrap.pypa.io/ez_setup.py"
+    dest: /tmp/ez_setup.py
+    mode: 0755
+
+- name: install easy_install from source
+  shell: "{{ item[0] }}{{ item[1] }} /tmp/ez_setup.py"
+  with_nested:
+    - [ 'python' ]
+    - [ '3', '' ]
+
+- name: install pip from source
+  shell: "{{ item[0] }}{{ item[1] }} /tmp/get-pip.py"
+  with_nested:
+    - [ 'python' ]
+    - [ '' ]
+
+- name: easy_install pip
+  shell: easy_install pip
+
+- name: Install pip tools
+  pip:
+    name: "{{ item[1] }}"
+    executable: "pip{{ item[0] }}"
+    state: present
+  with_nested:
+    - [ '' ]
+    - [ 'wheel', 'certifi', 'pyopenssl', 'pyasn1', 'ndg-httpsclient' ]
+
+- name: install Python tools
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - glances
+    - pbr
+    - pydf
+    - tox
+    - virtualenv
+    - virtualfish
+    - virtualenvwrapper
+    - wheel

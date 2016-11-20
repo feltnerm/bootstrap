@@ -1,9 +1,5 @@
 ---
 
-- name: shell | get shell absolute path
-  shell: "which {{ user_shell }}"
-  register: shell_path
-
 - name: user | create user
   become: true
   user:
@@ -13,14 +9,7 @@
     generate_ssh_key: yes
     ssh_key_bits: 4096
     ssh_key_comment: "{{ user }}@{{ ansible_fqdn }}"
-    shell: "{{ shell_path.stdout }}"
     state: present
-
-- name: user | set shell
-  become: true
-  user:
-    name: "{{ user }}"
-    shell: "{{ shell_path.stdout }}"
 
 - name: user | add groups
   become: true
