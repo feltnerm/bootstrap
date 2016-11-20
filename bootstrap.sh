@@ -69,6 +69,6 @@ git clone https://github.com/feltnerm/bootstrap.git /tmp/bootstrap || \
     cd /tmp/bootstrap; git pull
 
 cd /tmp/bootstrap && ansible-playbook \
-    "$BOOTSTRAP_ROOT"bootstrap.yml \
+    "$BOOTSTRAP_ROOT"playbooks/bootstrap.yml \
     -e "user=$BOOTSTRAP_USER" \
     -i "$BOOTSTRAP_ROOT"environments/local
