@@ -57,7 +57,10 @@
     - eslint-config-standard-react
     - eslint-plugin-react
     - eslint-plugin-standard
+    - eslint_d
     - nyancat
     - standard
+    - spoof
     - wifi-password
+    - yarn
 
