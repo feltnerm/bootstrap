@@ -7,16 +7,13 @@
 - include: 'macos.yml'
   when: ansible_os_family == 'Darwin'
 
-# - name: install vim-plug
-#   become: yes
-#   become_user: "{{ user }}"
-#   git:
-#     repo: https://github.com/VundleVim/Vundle.vim.git
-#     dest: "{{ user_home }}/.vim/bundle/Vundle.vim"
-#     clone: yes
-#     update: yes
-#     recursive: yes
-#     force: yes
+- name: ensure vim autoload directory exists
+  become: yes
+  become_user: "{{ user }}"
+  file:
+    path: "{{ user_home }}/.vim/autoload/"
+    state: directory
+    mode: 0755
 
 - name: install vim-plug
   become: yes
