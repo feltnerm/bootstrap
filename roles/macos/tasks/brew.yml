@@ -55,6 +55,7 @@
     - ncdu
     - pt
     - ranger
+    - ripgrep
     - rsync
     - shellcheck
     - surfraw
