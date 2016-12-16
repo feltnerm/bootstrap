@@ -20,8 +20,14 @@
     - vi-mode
     - virtualfish
     - weather
-    - git@github.com:mgoodness/plugin-asp.git
+    # - git@github.com:mgoodness/plugin-asp.git
   ignore_errors: yes
+
+- name: install python virtualfish library
+  become: true
+  pip:
+      name: virtualfish
+      state: present
 
 
 - name: install debian-specific plugins
