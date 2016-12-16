@@ -34,14 +34,26 @@
     state: present
     install_recommends: no
   with_items:
+    - ffmpeg
+    - bash
     - build-essential
+    - cowsay
+    - curl
     - dstat
+    - exiftool
     - figlet
     - fish
+    - flac
+    - fortune
+    - ghostscript
     - git
+    # - git-lfs
     - htop
+    - imagemagick
     - jq
+    # - keybase
     - keychain
+    - lnav
     - lsof
     - lynx-cur
     - mc
@@ -50,15 +62,16 @@
     - ncdu
     - ranger
     - rsync
+    - surfraw
+    - shellcheck
     - software-properties-common
     - sysstat
     - tmux
     - tree
     - unp
     - unzip
-    - vim
+    - wget
     - zip
-    - zsh
 
 - name: apt | check removed
   become: true

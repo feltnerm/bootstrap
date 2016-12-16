@@ -25,25 +25,25 @@
   become: true
   command: /usr/sbin/update-locale LANG={{ locale }}
 
-- name: set /etc/localtime
-  become: true
-  file: src=/usr/share/zoneinfo/{{ time_zone }} dest=/etc/localtime state=link
+# - name: set /etc/localtime
+#   become: true
+#   file: src=/usr/share/zoneinfo/{{ time_zone }} dest=/etc/localtime state=link
 
-- name: time | current timezone
-  become: true
-  shell: cat /etc/timezone
-  register: current_zone
+# - name: time | current timezone
+#   become: true
+#   shell: cat /etc/timezone
+#   register: current_zone
 
-- name: time | configure timezone
-  become: true
-  copy:
-    content: "{{ time_zone }}"
-    dest: /etc/timezone
-    owner: root
-    group: root
-    mode: 0644
-    backup: yes
-  when: current_zone.stdout != time_zone
-  register: configure_time_zone
+# - name: time | configure timezone
+#   become: true
+#   copy:
+#     content: "{{ time_zone }}"
+#     dest: /etc/timezone
+#     owner: root
+#     group: root
+#     mode: 0644
+#     backup: yes
+#   when: current_zone.stdout != time_zone
+#   register: configure_time_zone
 
 
