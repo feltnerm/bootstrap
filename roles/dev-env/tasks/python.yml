@@ -13,21 +13,25 @@
     mode: 0755
 
 - name: install easy_install from source
+  become: true
   shell: "{{ item[0] }}{{ item[1] }} /tmp/ez_setup.py"
   with_nested:
     - [ 'python' ]
     - [ '3', '' ]
 
 - name: install pip from source
+  become: true
   shell: "{{ item[0] }}{{ item[1] }} /tmp/get-pip.py"
   with_nested:
     - [ 'python' ]
     - [ '' ]
 
 - name: easy_install pip
+  become: true
   shell: easy_install pip
 
 - name: Install pip tools
+  become: true
   pip:
     name: "{{ item[1] }}"
     executable: "pip{{ item[0] }}"
@@ -37,6 +41,7 @@
     - [ 'wheel', 'certifi', 'pyopenssl', 'pyasn1', 'ndg-httpsclient' ]
 
 - name: install Python tools
+  become: true
   pip:
     name: "{{ item }}"
     state: latest
