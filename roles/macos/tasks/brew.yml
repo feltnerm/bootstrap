@@ -37,6 +37,7 @@
     - fish
     - flac
     - fortune
+    - fpp
     - ghostscript
     - git
     - git-lfs
@@ -58,11 +59,14 @@
     - ripgrep
     - rsync
     - shellcheck
+    - selecta
     - surfraw
+    - thefuck
     - tmux
     - trash
     - tree
     - unzip
+    - urlview
     - wget
 
 - name: install completions
