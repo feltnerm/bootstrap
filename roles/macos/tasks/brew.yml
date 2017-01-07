@@ -25,6 +25,7 @@
     state: present
   with_items:
     - ack
+    - awscli
     - bash
     - coreutils
     - cowsay
@@ -38,6 +39,7 @@
     - flac
     - fortune
     - fpp
+    - free
     - ghostscript
     - git
     - git-lfs
@@ -54,6 +56,7 @@
     - mc
     - mtr
     - ncdu
+    - pidof
     - pt
     - ranger
     - ripgrep
