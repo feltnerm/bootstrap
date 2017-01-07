@@ -1,0 +1,6 @@
+---
+
+- name: install beets
+  pip:
+      name: beets
+      state: latest

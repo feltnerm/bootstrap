@@ -42,7 +42,8 @@
     #- nalanda # setup backup jobs, set /stash, etc.
     - common-server
     - zeroconf
-    - audio 
-    - mopidy
-    - ncmpcpp
+    - audio
     - samba
+    - ncmpcpp
+    - mopidy
+    - beets

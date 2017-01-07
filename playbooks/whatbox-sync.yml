@@ -1,0 +1,13 @@
+---
+
+- hosts: nalanda
+  tasks:
+    - name: rsync newest files from whatbox
+      command: "rsync --update --stats --human-readable --recursive --times \
+                --owner --group --perms --cvs-exclude --devices --specials \
+                --copy-links --copy-dirlinks \
+                plugitin@ulysses.whatbox.ca:/home/plugitin/finished/ /stash/uploads/whatbox"
+      register: rsync_result
+    - debug: var=rsync_result.stdout_lines
+
+

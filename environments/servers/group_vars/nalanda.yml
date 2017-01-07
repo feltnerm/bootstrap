@@ -8,6 +8,7 @@ extra_groups:
   - sudo
 
 stash: "/stash"
+backup: "/mnt/backup"
 
 ufw_allow_ports:
   - 6880 # mpd

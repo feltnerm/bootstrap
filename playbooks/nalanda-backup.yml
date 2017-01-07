@@ -1,0 +1,12 @@
+---
+
+- hosts: nalanda
+  tasks:
+    - name: backup /stash
+      synchronize:
+          archive: yes
+          src: "{{ stash }}/library"
+          dest: "{{ backup }}"
+      delegate_to: "{{ inventory_hostname }}"
+      register: rsync_result
+    - debug: var=rsync_result.stdout_lines
