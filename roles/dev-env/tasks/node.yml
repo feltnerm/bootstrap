@@ -62,6 +62,12 @@
     - nyancat
     - standard
     - spoof
+    - textlint
+    - textlint-rule-rousseau
+    - textlint-rule-alex
+    - textlint-rule-spellchecker
+    - textlint-rule-write-good
     - wifi-password
+    - write-good
     - yarn
 
