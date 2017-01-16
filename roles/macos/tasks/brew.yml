@@ -64,6 +64,7 @@
     - ranger
     - ripgrep
     - rsync
+    - scrypt
     - shellcheck
     - selecta
     - surfraw
