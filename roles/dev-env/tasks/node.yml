@@ -62,6 +62,7 @@
     - nyancat
     - standard
     - spoof
+    - stylelint
     - textlint
     - textlint-rule-rousseau
     - textlint-rule-alex
