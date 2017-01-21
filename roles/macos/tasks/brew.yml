@@ -31,7 +31,7 @@
     - coreutils
     - cowsay
     - curl
-    - docker-machine-driver-xhyve
+    - docker-beta
     - exiftool
     - ffmpeg
     - figlet
@@ -52,6 +52,8 @@
     - jq
     - keybase
     - keychain
+    - kubernetes-cli
+    - kubernetes-helm
     - lnav
     - lsof
     - lynx
@@ -67,6 +69,7 @@
     - scrypt
     - shellcheck
     - selecta
+    - stern
     - surfraw
     - thefuck
     - tmux
