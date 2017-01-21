@@ -31,6 +31,7 @@
     - coreutils
     - cowsay
     - curl
+    - diff-so-fancy
     - docker-beta
     - exiftool
     - ffmpeg
