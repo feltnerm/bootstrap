@@ -51,6 +51,7 @@
     - graphviz
     - homebrew/dupes/grep
     - htop-osx
+    - hub
     - imagemagick
     - jq
     - keybase
