@@ -47,8 +47,10 @@
     state: latest
   with_items:
     - glances
+    - http-prompt
     - pbr
     - pydf
+    - waws
     - tox
     - virtualenv
     - virtualfish
