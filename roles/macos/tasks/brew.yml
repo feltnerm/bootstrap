@@ -82,6 +82,7 @@
     - tree
     - unzip
     - urlview
+    - vegeta
     - wget
 
 - name: install completions
