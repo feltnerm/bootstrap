@@ -60,6 +60,7 @@
     - eslint-plugin-react
     - eslint-plugin-standard
     - eslint_d
+    - loadtest
     - nyancat
     - standard
     - spoof
