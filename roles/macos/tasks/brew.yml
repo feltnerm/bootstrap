@@ -85,6 +85,7 @@
     - vegeta
     - wget
     - wrk
+    - wordnet
 
 - name: install completions
   homebrew:
