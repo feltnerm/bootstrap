@@ -34,6 +34,7 @@
     - curl
     - diff-so-fancy
     - docker-beta
+    - editorconfig
     - exiftool
     - ffmpeg
     - figlet
