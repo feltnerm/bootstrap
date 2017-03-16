@@ -64,6 +64,7 @@
     - mc
     - mtr
     - ncdu
+    - pdfgrep
     - pidof
     - pmd
     - pt
