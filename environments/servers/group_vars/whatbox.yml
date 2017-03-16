@@ -1,5 +1,12 @@
 ---
 
+user: "{{ ansible_user }}"
+user_shell: zsh
+
+python_home: "{{ user_home }}/.local/bin"
+venv_name: "whatbox"
+
 rtorrent_files: ~/files
 rtorrent_watch: ~/watch
 rtorrent_finished: ~/finished
+

@@ -1,0 +1,7 @@
+---
+
+- hosts: whatbox
+  roles:
+    #- whatbox # setup dotfiles, music sync scripts
+    - common
+    - whatbox
