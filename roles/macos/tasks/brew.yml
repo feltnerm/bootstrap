@@ -108,6 +108,7 @@
   with_items:
     - awless
     - caffeine
+    - colloquy
     - cyberduck
     - docker-toolbox
     - electric-sheep
