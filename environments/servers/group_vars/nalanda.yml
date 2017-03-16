@@ -19,11 +19,11 @@ mopidy_configuration:
     options:
       - option: hostname
         value: 0.0.0.0
-  - section: http 
+  - section: http
     options:
       - option: hostname
         value: 0.0.0.0
-  - section: file 
+  - section: file
     options:
       - option: media_dirs
         value: "{{ stash }}/library/music|Library"

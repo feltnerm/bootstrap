@@ -160,7 +160,7 @@
 # - name: install casks apps
 #   homebrew:
 #     name: "{{ item }}"
-#     state: linked 
+#     state: linked
 #   with_items:
 #     - docker
 
