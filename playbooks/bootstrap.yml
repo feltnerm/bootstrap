@@ -6,7 +6,7 @@
      - role: user
      - role: debian
        when: ansible_os_family == 'Debian'
-     - role: arch 
+     - role: arch
        when: ansible_os_family == 'Archlinux'
      - role: macos
        when: ansible_os_family == 'Darwin'
@@ -29,7 +29,7 @@
     - time_zone: 'US/Central'
     - mac_time_zone: 'America/Chicago'
 
-- hosts: soundpi 
+- hosts: soundpi
   roles:
     - rpi
     - common-server
