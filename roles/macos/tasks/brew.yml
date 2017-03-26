@@ -101,7 +101,6 @@
     state: present
   with_items:
     - brew-cask-completion
-    - docker-compose-completion
     - launchctl-completion
     - open-completion
     - pip-completion
