@@ -20,6 +20,12 @@
     - homebrew/services
     - wallix/awless
 
+# dependency
+- name: install casks
+  homebrew_cask:
+    name: xquartz
+    state: present
+
 - name: install apps
   homebrew:
     name: "{{ item }}"
