@@ -39,7 +39,7 @@
     - cowsay
     - curl
     - diff-so-fancy
-    - docker-beta
+    - docker
     - editorconfig
     - exiftool
     - ffmpeg
