@@ -8,19 +8,31 @@
     executable: fish
   with_items:
     - ansible
+    - await
+    - aws
     - bang-bang
+    - battery
+    - brew
     - docker-machine
     - extract
     - foreign-env
+    - getopts
     - hash
+    - license
+    - node-binpath
     - nvm
+    - osx
+    - peco
     - python
+    - rustup
     - rvm
-    # - tmux-zen
+    - tab
+    - thefuck
+    - vcs
     - vi-mode
     - virtualfish
     - weather
-    # - git@github.com:mgoodness/plugin-asp.git
+    - wttr
   ignore_errors: yes
 
 - name: install python virtualfish library
