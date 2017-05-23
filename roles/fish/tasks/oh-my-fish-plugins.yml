@@ -3,7 +3,7 @@
 - name: install plugins
   become: true
   become_user: "{{ user }}"
-  shell: "omf install {{ item }}"   
+  shell: "omf install {{ item }}"
   args:
     executable: fish
   with_items:
@@ -45,7 +45,7 @@
 - name: install debian-specific plugins
   become: true
   become_user: "{{ user }}"
-  shell: "omf install {{ item }}"   
+  shell: "omf install {{ item }}"
   args:
     executable: fish
   with_items:
@@ -56,7 +56,7 @@
 - name: install macOS-specific plugins
   become: true
   become_user: "{{ user }}"
-  shell: "omf install {{ item }}"   
+  shell: "omf install {{ item }}"
   args:
     executable: fish
   with_items:
