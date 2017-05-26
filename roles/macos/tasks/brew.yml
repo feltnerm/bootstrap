@@ -62,6 +62,7 @@
     - lsof
     - lynx
     - mc
+    - mosh
     - mtr
     - ncdu
     - pdfgrep
