@@ -52,6 +52,9 @@
   args:
     executable: "{{ fish_path.stdout }}"
   with_items:
+    - elm
+    - elm-oracle
+    - elm-test
     - emoj
     - eslint
     - eslint-config-standard
@@ -60,8 +63,19 @@
     - eslint-plugin-react
     - eslint-plugin-standard
     - eslint_d
+    - git-recall
+    - gmplayer
+    - iectrl
+    - ievims
     - loadtest
+    - mapscii
+    - nodemon
+    - npm-check-updates
     - nyancat
+    - prettier
+    - prettier-standard
+    - regexgen
+    - serverless
     - standard
     - spoof
     - stylelint
@@ -70,7 +84,7 @@
     - textlint-rule-alex
     - textlint-rule-spellchecker
     - textlint-rule-write-good
+    - travis-watch
     - wifi-password
     - write-good
     - yarn
-
