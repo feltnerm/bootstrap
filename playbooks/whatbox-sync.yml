@@ -1,22 +1,49 @@
 ---
 
+- hosts: localhost
+  tasks:
+    - name: set global vars/facts
+      set_fact:
+        date_time: "{{ ansible_date_time.iso8601_basic_short }}"
+
 - hosts: whatbox
+  vars:
+    sourceFolder: "/home/plugitin/finished"
+    backupFolder: "/home/plugitin/backup/finished"
+    backupFilename: "finished.{{ hostvars.localhost.date_time }}.tar.gz"
   tasks:
+    - name: debug
+      debug: var="{{ hostvars }}"
+    - name: create backup directory
+      file:
+        state: directory
+        path: "{{ backupFolder }}"
     - name: backup symlinks
-      shell: "tar -czf /home/plugitin/backup/finished-$(date -u '+%Y-%m-%d_%HZ').tar.gz /home/plugitin/finished "
+      shell: "tar -czf {{ backupFolder }}/{{ backupFilename }} -C {{ sourceFolder }} ."
+      args:
+        creates: "{{ backupFolder }}/{{ backupFilename }}"
 
-- hosts: nalanda vars_prompt:
-    - name: "gmupload"
-      prompt: "Would you like to upload to Google Music after sync and tag? (yes/no)"
-      default: "yes"
-    - name: "cleanup_nalanda"
-      prompt: "Would you like to cleanup nalanda after sync? (yes/no)"
-      default: "no"
-    - name: "backup_nalanda"
-      prompt: "Would you like to run backups after sync? (yes/no)"
-      default: "no"
+- hosts: nalanda
+  # vars_prompt:
+  #   - name: "gmupload"
+  #     prompt: "Would you like to upload to Google Music after sync and tag? (yes/no)"
+  #     default: "yes"
+  #   - name: "cleanup_nalanda"
+  #     prompt: "Would you like to cleanup nalanda after sync? (yes/no)"
+  #     default: "no"
+  #   - name: "backup_nalanda"
+  #     prompt: "Would you like to run backups after sync? (yes/no)"
+  #     default: "no"
 
+  vars:
+    logsDirectory: "{{ stash }}/_meta/logs"
+    uploadFolder: "{{ stash }}/uploads/whatbox"
   tasks:
+    - name: ensure logs directory exists
+      file:
+        state: directory
+        path: "{{ logsDirectory }}"
+
     - name: rsync from whatbox
       command: "rsync --update --stats --human-readable --recursive --times \
                 --owner --group --perms --cvs-exclude --devices --specials \
@@ -26,6 +53,25 @@
 
     - name: result of rsyncing files from whatbox
       debug: var=rsync_result.stdout_lines
+
+    - name: update tags with beets
+      command: 'beet import --quiet --log={{ stash }}/_meta/logs/beet-import.{{ hostvars.localhost.date_time }}-tag.log --nocopy .'
+      args:
+        chdir: '{{ stash }}/uploads/whatbox/music'
+
+    - name: upload to google music
+      command: 'gmupload --log {{ stash }}/uploads/whatbox/music'
+#       when: gmupload == "yes"
+
+    - name: copy gmupload log
+      file:
+        src: "{{ user_home }}/.cache/gmusicapi/log/gmusicapi.log"
+        dest: "{{ stash }}/_meta/logs/gmusic.{{ hostvars.localhost.date_time }}.log"
+
+    - name: move into beets library
+      command: 'beet import --quiet --log={{ stash }}/_meta/logs/beet-import.{{ hostvars.localhost.date_time }}-copy.log --noautotag .'
+      args:
+        chdir: '{{ stash }}/uploads/whatbox/music'
 
     - name: copy media
       command: mv "{{ stash }}/uploads/whatbox/{{ item }}/* {{ stash }}/library/{{ item }}"
@@ -38,33 +84,20 @@
         - "tv"
         - "warez"
 
-    - name: update tags with beets
-      chdir: '{{ stash }}/uploads/whatbox/music'
-      command: 'beet import --quiet --log={{ stash }}/_meta/logs/beet-import.log --nocopy .'
-
-    - name: upload to google music
-      command: 'gmupload --log {{ stash }}/uploads/whatbox/music'
-      when: gmupload == "yes"
-
-    - name: move into beets library
-      chdir: '{{ stash }}/uploads/whatbox/music'
-      command: 'beet import --quiet --log={{ stash }}/_meta/beet-import.log --noautotag .'
-
-    - name: remove files that have changed from uploads
-      when: cleanup_nalanda == "yes"
-      shell: 'rm -rf /stash/library/uploads/whatbox/*'
-      when: cleanup_nalanda == "yes"
-
     - name: run backups
       command: './stash/_scripts/backup.sh'
-      when: backup_nalanda == "yes"
+      # when: backup_nalanda == "yes"
+
+    - name: remove files that have changed from uploads
+      shell: 'rm -rf /stash/library/uploads/whatbox/*'
+    #   when: cleanup_nalanda == "yes"
 
 - hosts: whatbox
-  vars_prompt:
-    - name: "cleanup_whatbox"
-      prompt: "Would you like to cleanup whatbox after sync? (yes/no)"
-      default: "no"
+  # vars_prompt:
+  #   - name: "cleanup_whatbox"
+  #     prompt: "Would you like to cleanup whatbox after sync? (yes/no)"
+  #     default: "no"
   tasks:
     - name: cleanup whatbox
       shell: 'rm -rf ~/finished/*'
-      when: cleanup_whatbox == "yes"
+      # when: cleanup_whatbox == "yes"
