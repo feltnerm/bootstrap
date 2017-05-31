@@ -50,7 +50,6 @@
     - flac
     - fortune
     - fpp
-    - free
     - ghostscript
     - git
     - git-lfs
@@ -60,7 +59,6 @@
     - hub
     - imagemagick
     - jq
-    - keybase
     - keychain
     - kubernetes-cli
     - kubernetes-helm
@@ -122,6 +120,7 @@
     - flux
     - google-chrome
     - karabiner
+    - keybase
     - lastfm
     - lastpass
     - sequel-pro
