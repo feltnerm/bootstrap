@@ -58,6 +58,7 @@
     - elm-test
     - emoj
     - eslint
+    - eslint_d
     - eslint-config-standard
     - eslint-config-standard-react
     - eslint-plugin-promise
