@@ -120,12 +120,11 @@
     - flux
     - google-chrome
     - karabiner
-    - keybase
+    # - keybase
     - lastfm
     - lastpass
     - sequel-pro
     - slack
-    - spotify
     - spectacle
     - spotify-notifications
     - totalspaces

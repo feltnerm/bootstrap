@@ -50,7 +50,6 @@
     - http-prompt
     - pbr
     - pydf
-    - waws
     - tox
     - virtualenv
     - virtualfish
