@@ -85,7 +85,7 @@
         - "warez"
 
     - name: run backups
-      command: './stash/_scripts/backup.sh'
+      command: '/stash/_scripts/backup.sh'
       # when: backup_nalanda == "yes"
 
     - name: remove files that have changed from uploads
