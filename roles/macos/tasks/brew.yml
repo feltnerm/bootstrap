@@ -53,6 +53,7 @@
     - ghostscript
     - git
     - git-lfs
+    - git-quick-stats
     - graphviz
     - homebrew/dupes/grep
     - htop-osx
