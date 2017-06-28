@@ -76,12 +76,14 @@
     - nyancat
     - prettier
     - prettier-standard
+    - pretty-diff
     - readme
     - regexgen
     - serverless
     - standard
     - spoof
     - stylelint
+    - svgo
     - textlint
     - textlint-rule-rousseau
     - textlint-rule-alex
