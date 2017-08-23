@@ -84,6 +84,8 @@
     - spoof
     - stylelint
     - svgo
+    - tern
+    - tern_jsx
     - textlint
     - textlint-rule-rousseau
     - textlint-rule-alex
