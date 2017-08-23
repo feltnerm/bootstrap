@@ -15,9 +15,10 @@
     - caskroom/fonts
     - caskroom/versions
     - homebrew/bundle
-    - homebrew/dupes
     - homebrew/completions
+    - homebrew/dupes
     - homebrew/services
+    - universal-ctags/universal-ctags
     - wallix/awless
 
 # dependency
@@ -93,6 +94,11 @@
     - wget
     - wrk
     - wordnet
+
+- name: install HEAD packages
+  homebrew:
+    name: 'universal-ctags'
+    state: 'head'
 
 - name: install completions
   homebrew:
