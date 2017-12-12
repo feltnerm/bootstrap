@@ -11,6 +11,8 @@
     state: present
     tap: "{{ item }}"
   with_items:
+    - boz/repo
+    - c-bata/kube-prompt
     - caskroom/cask
     - caskroom/fonts
     - caskroom/versions
@@ -43,6 +45,7 @@
     - docker
     - editorconfig
     - exiftool
+    - fd
     - ffmpeg
     - figlet
     - findbugs
@@ -84,6 +87,7 @@
     - selecta
     - stern
     - surfraw
+    - tig
     - thefuck
     - tmux
     - trash
@@ -117,7 +121,9 @@
     # @todo: re-add in ansible 2.2
     # install_options: "appdir=/Applications"
   with_items:
+    - amethyst
     - awless
+    - boz/repo/kail
     - caffeine
     - colloquy
     - cyberduck
@@ -128,6 +134,7 @@
     - google-chrome
     - karabiner
     # - keybase
+    - kube-prompt
     - lastfm
     - lastpass
     - sequel-pro
