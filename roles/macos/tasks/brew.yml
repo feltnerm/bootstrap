@@ -137,6 +137,7 @@
     - kube-prompt
     - lastfm
     - lastpass
+    - macdown
     - sequel-pro
     - slack
     - spectacle
@@ -146,6 +147,7 @@
     - vagrant
     - virtualbox
     - virtualbox-extension-pack
+    - visual-studio-code
     - vlc
 
 - name: install quicklook plugins
