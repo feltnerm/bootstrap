@@ -62,6 +62,8 @@
     - eslint_d
     - eslint-config-standard
     - eslint-config-standard-react
+    - eslint-plugin-import
+    - eslint-plugin-node
     - eslint-plugin-promise
     - eslint-plugin-react
     - eslint-plugin-standard
@@ -70,12 +72,16 @@
     - gmplayer
     - iectrl
     - ievms
+    - jsctags
     - loadtest
     - mapscii
+    - microtime
     - nodemon
     - npm-check-updates
     - nyancat
     - prettier
+    - prettier
+    - prettier-eslint
     - prettier-standard
     - pretty-diff
     - readme
@@ -94,5 +100,6 @@
     - textlint-rule-write-good
     - travis-watch
     - wifi-password
+    - wopr
     - write-good
     - yarn
