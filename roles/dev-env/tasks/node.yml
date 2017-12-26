@@ -4,7 +4,7 @@
   become: true
   become_user: "{{ user }}"
   get_url:
-    url: https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh
+    url: https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh
     dest: /tmp/nvm-install
     mode: 0755
 
@@ -31,18 +31,19 @@
     - 6
     - 7
     - 8
+    - 9
 
 - name: set current node version
   become: true
   become_user: "{{ user }}"
-  shell: nvm use 8
+  shell: nvm use 9
   args:
     executable: "{{ fish_path.stdout }}"
 
 - name: set system node version
   become: true
   become_user: "{{ user }}"
-  shell: nvm alias default 8
+  shell: nvm alias default 9
   args:
     executable: "{{ fish_path.stdout }}"
 
