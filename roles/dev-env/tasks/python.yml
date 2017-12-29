@@ -18,25 +18,17 @@
   pip:
     name: "{{ item[1] }}"
     executable: "pip{{ item[0] }}"
-    state: present
+    state: latest
   with_nested:
-    - [ '' ]
-    - [ 'wheel', 'certifi', 'pyopenssl', 'pyasn1', 'ndg-httpsclient' ]
+    - [ '2', '3' ]
+    - [ 'setuptools', 'wheel', 'certifi', 'pyopenssl', 'pyasn1', 'ndg-httpsclient' ]
 
 - name: install Python tools
   become: true
   pip:
-    name: "{{ item }}"
+    name: "{{ item[1] }}"
+    executable: "pip{{ item[0] }}"
     state: latest
-  with_items:
-    - glances
-    - http-prompt
-    - neovim
-    - pbr
-    - pydf
-    - tox
-    - virtualenv
-    - virtualfish
-    - virtualenvwrapper
-    - wheel
-    - xkcdpass
+  with_nested:
+    - [ '2', '3' ]
+    - [ 'glances', 'http-prompt', 'neovim', 'pbr', 'pydf', 'tox', 'virtualenv', 'virtualfish', 'virtualenvwrapper', 'wheel', 'xkcdpass' ]
