@@ -36,7 +36,9 @@
   with_items:
     - ack
     - awscli
+    - awless
     - bash
+    - boz/repo/kail
     - checkstyle
     - coreutils
     - cowsay
@@ -65,8 +67,9 @@
     - imagemagick
     - jq
     - keychain
-    - kubernetes-cli
+    - kubectl
     - kubernetes-helm
+    - kube-prompt
     - lnav
     - lsof
     - lynx
@@ -122,8 +125,6 @@
     # install_options: "appdir=/Applications"
   with_items:
     - amethyst
-    - awless
-    - boz/repo/kail
     - caffeine
     - colloquy
     - cyberduck
@@ -134,7 +135,6 @@
     - google-chrome
     - karabiner
     # - keybase
-    - kube-prompt
     - lastfm
     - lastpass
     - macdown
