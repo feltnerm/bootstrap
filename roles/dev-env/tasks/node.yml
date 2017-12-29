@@ -92,7 +92,7 @@
     - stylelint
     - svgo
     - tern
-    - tern_jsx
+    - tern-jsx
     - textlint
     - textlint-rule-rousseau
     - textlint-rule-alex
