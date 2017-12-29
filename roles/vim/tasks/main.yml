@@ -32,6 +32,11 @@
   become_user: "{{ user }}"
   shell: "vim +PlugInstall! +qall"
 
+- name: clean vim plugins
+  become: yes
+  become_user: "{{ user }}"
+  shell: "vim +PlugClean! +qall"
+
 - name: update vim plugins
   become: yes
   become_user: "{{ user }}"
