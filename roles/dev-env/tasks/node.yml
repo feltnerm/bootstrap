@@ -99,6 +99,7 @@
     - textlint-rule-spellchecker
     - textlint-rule-write-good
     - travis-watch
+    - typescript
     - wifi-password
     - wopr
     - write-good
