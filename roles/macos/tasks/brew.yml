@@ -20,6 +20,7 @@
     - homebrew/completions
     - homebrew/dupes
     - homebrew/services
+    - thoughtbot/formulae
     - universal-ctags/universal-ctags
     - wallix/awless
 
@@ -39,6 +40,7 @@
     - awless
     - bash
     - boz/repo/kail
+    - caddy
     - checkstyle
     - coreutils
     - cowsay
@@ -59,6 +61,7 @@
     - ghostscript
     - git
     - git-lfs
+    - gitsh
     - git-quick-stats
     - graphviz
     - homebrew/dupes/grep
