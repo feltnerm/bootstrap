@@ -32,18 +32,19 @@
     - 7
     - 8
     - 9
+    - 10
 
 - name: set current node version
   become: true
   become_user: "{{ user }}"
-  shell: nvm use 9
+  shell: nvm use 10
   args:
     executable: "{{ fish_path.stdout }}"
 
 - name: set system node version
   become: true
   become_user: "{{ user }}"
-  shell: nvm alias default 9
+  shell: nvm alias default 10
   args:
     executable: "{{ fish_path.stdout }}"
 
