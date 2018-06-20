@@ -36,6 +36,7 @@
     state: present
   with_items:
     - ack
+    - archey
     - awscli
     - awless
     - bash
