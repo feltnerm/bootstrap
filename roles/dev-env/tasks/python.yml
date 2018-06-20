@@ -31,4 +31,4 @@
     state: latest
   with_nested:
     - [ '2', '3' ]
-    - [ 'glances', 'http-prompt', 'neovim', 'pbr', 'pydf', 'tox', 'virtualenv', 'virtualfish', 'virtualenvwrapper', 'wheel', 'xkcdpass' ]
+    - [ 'autopep8', 'glances', 'http-prompt', 'neovim', 'pbr', 'pydf', 'pycodestyle', "'python-language-server[all]'", 'tox', 'virtualenv', 'virtualfish', 'virtualenvwrapper', 'wheel', 'xkcdpass' ]
