@@ -10,3 +10,11 @@
   become: true
   shell: "/tmp/rustup.sh"
 
+- name: update rust
+  become: true
+  shell: "rustup update"
+
+- name: install rust language server
+  become: true
+  shell: "rustup component add rls-preview rust-analysis rust-src"
+
