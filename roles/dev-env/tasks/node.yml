@@ -69,6 +69,7 @@
     - eslint-plugin-react
     - eslint-plugin-standard
     - eslint_d
+    - ghwd
     - git-recall
     - gmplayer
     - iectrl
