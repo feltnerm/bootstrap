@@ -20,6 +20,7 @@
     - homebrew/completions
     - homebrew/dupes
     - homebrew/services
+    - moncho/dry
     - thoughtbot/formulae
     - universal-ctags/universal-ctags
     - wallix/awless
@@ -47,6 +48,7 @@
     - cowsay
     - curl
     - diff-so-fancy
+    - dry
     - docker
     - editorconfig
     - exiftool
