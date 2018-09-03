@@ -41,6 +41,7 @@
     - awscli
     - awless
     - bash
+    - bat
     - boz/repo/kail
     - caddy
     - checkstyle
