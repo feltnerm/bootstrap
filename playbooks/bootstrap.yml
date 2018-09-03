@@ -15,17 +15,6 @@
      - role: shell
      - role: dotfiles
      - role: fish
-     - role: dropbox
-     - role: go
-     - role: java
-     - role: node
-     - role: python
-     - role: ruby
-     - role: rust
-     - role: vim
-     - role: neovim
-     - role: dev-env
-     - role: games
   vars:
     - locale: 'en_US.UTF-8'
     - time_zone: 'US/Central'

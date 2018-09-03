@@ -1,0 +1,22 @@
+# playbook/bootstrap-dev-env.yml
+# Setup a dev environment on a local system
+# *NOTE*: this assumes `bootstrap.yml` has been run at some point previously
+
+- include: bootstrap.yaml
+
+- hosts: all
+  roles:
+     - role: dropbox
+     - role: go
+     - role: java
+     - role: node
+     - role: python
+     - role: ruby
+     - role: rust
+     - role: vim
+     - role: neovim
+     - role: dev-env
+  vars:
+    - locale: 'en_US.UTF-8'
+    - time_zone: 'US/Central'
+    - mac_time_zone: 'America/Chicago'
