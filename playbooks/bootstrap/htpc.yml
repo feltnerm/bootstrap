@@ -1,0 +1,24 @@
+# playbook/htpc.yml
+# Setup home theatre pc
+---
+
+- import_playbook: bootstrap.yml
+- import_playbook: dev-env.yml
+
+- hosts: all
+  roles:
+    - common-server
+    - zeroconf
+    - audio
+    - samba
+    - ncmpcpp
+    - mopidy
+    - beets
+  vars:
+    - locale: 'en_US.UTF-8'
+    - time_zone: 'US/Central'
+    - mac_time_zone: 'America/Chicago'
+
+
+
+

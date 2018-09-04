@@ -2,7 +2,7 @@
 # Setup a dev environment on a local system
 # *NOTE*: this assumes `bootstrap.yml` has been run at some point previously
 
-- include: bootstrap.yaml
+- import_playbook: bootstrap.yml
 
 - hosts: all
   roles:
