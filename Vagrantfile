@@ -19,7 +19,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "ubuntu" do |ubuntu|
-    ubuntu.vm.box = "ubuntu/xenial64"
+    ubuntu.vm.box = "ubuntu/bionic64"
     # install virtualbox-guest-utils until xenial box is patched
     ubuntu.vm.provision "shell",
                         inline: "sudo apt-get --no-install-recommends install virtualbox-guest-utils"
