@@ -34,13 +34,17 @@
     state: present
     install_recommends: no
   with_items:
-    - ffmpeg
+    - ack
     - bash
     - build-essential
     - cowsay
     - curl
+    - default-jre
+    - docker
     - dstat
+    - editorconfig
     - exiftool
+    - ffmpeg
     - figlet
     - fish
     - flac
@@ -55,21 +59,28 @@
     - keychain
     - lnav
     - lsof
-    - lynx-cur
+    - lynx
     - mc
+    - mosh
     - mtr-tiny
     - nano
     - ncdu
+    - peco
     - ranger
     - rsync
+    - siege
+    - scrypt
     - surfraw
     - shellcheck
     - software-properties-common
     - sysstat
+    - tig
     - tmux
     - tree
     - unp
     - unzip
+    - urlview
+    - vim
     - wget
     - zip
 
