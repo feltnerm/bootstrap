@@ -1,0 +1,4 @@
+---
+
+debian_repo_version: 8.x
+ansible_distribution_release: bionic

@@ -3,7 +3,7 @@
 - name: add neovim repository
   become: true
   apt_repository:
-      repo: "ppa:neovim-ppa/unstable"
+      repo: "ppa:neovim-ppa/stable"
       update_cache: yes
 
 - name: install neovim
@@ -11,3 +11,15 @@
   apt:
       name: neovim
       state: present
+
+- name: install dependencies
+  become: true
+  apt:
+    pkg: "{{ item }}"
+    state: absent
+  with_items:
+    - python-dev
+    - python-pip
+    - python3-dev
+    - python3-pip
+
