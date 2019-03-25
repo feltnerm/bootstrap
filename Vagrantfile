@@ -32,15 +32,15 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "shell",
-                      path: "bootstrap.sh",
-                      env: {
-                        "BOOTSTRAP_USER" => "mark",
-                        "BOOTSTRAP_ROOT" => "/vagrant/"
-                      }
+    path: "bootstrap.sh",
+    env: {
+      "BOOTSTRAP_USER" => "mark",
+      "BOOTSTRAP_ROOT" => "/vagrant/"
+    }
 
-  # config.vm.provision "ansible_local" do |ansible|
-  #   # ansible.install = true
-  #   # ansible.limit = "all"
+# config.vm.provision "ansible_local" do |ansible|
+#   # ansible.install = true
+#   # ansible.limit = "all"
   #   # ansible.inventory_path = "environments/local"
   #   ansible.playbook = "bootstrap.yml"
   # end
