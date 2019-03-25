@@ -26,6 +26,11 @@ Vagrant.configure(2) do |config|
     ubuntu.vm.synced_folder ".", "/vagrant", disabled: false
   end
 
+  config.vm.define "archlinux" do |archlinux|
+    archlinux.vm.box = "archlinux/archlinux"
+    archlinux.vm.synced_folder ".", "/vagrant", disabled: false
+  end
+
   config.vm.provision "shell",
                       path: "bootstrap.sh",
                       env: {
