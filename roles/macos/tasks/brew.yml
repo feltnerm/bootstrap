@@ -78,6 +78,7 @@
     - jq
     - keychain
     - kubectl
+    - kubectx
     - kubernetes-helm
     - kube-prompt
     - lnav
