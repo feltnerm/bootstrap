@@ -37,6 +37,7 @@
     - ack
     - bash
     - build-essential
+    - cmake
     - cowsay
     - curl
     - default-jre
@@ -57,6 +58,7 @@
     - jq
     # - keybase
     - keychain
+    - libz-dev
     - lnav
     - lsof
     - lynx
