@@ -6,3 +6,22 @@
   when: ansible_os_family == 'Debian'
 - include: 'macos.yml'
   when: ansible_os_family == 'Darwin'
+
+- name: get rust installer
+  get_url:
+    url: "https://static.rust-lang.org/rustup.sh"
+    dest: /tmp/rustup.sh
+    mode: 0775
+
+- name: run rust installer
+  become: true
+  shell: "/tmp/rustup.sh --yes"
+
+- name: install dependencies
+  become: true
+  shell: "cargo install --force {{ item }}"
+  loop:
+    # - bat
+    - exa
+    - ripgrep
+

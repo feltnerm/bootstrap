@@ -9,5 +9,4 @@
 
 - include: "python.yml"
 - include: "node.yml"
-- include: "rust.yml"
 - include: "rvm.yml"
