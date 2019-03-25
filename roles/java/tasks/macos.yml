@@ -4,3 +4,8 @@
   homebrew_cask:
     name: java
     state: present
+
+- name: install corretto
+  homebrew_cask:
+    name: java
+    state: present
