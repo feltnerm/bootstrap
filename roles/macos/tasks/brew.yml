@@ -24,6 +24,7 @@
     - thoughtbot/formulae
     - universal-ctags/universal-ctags
     - wallix/awless
+    - wagoodman/dive
 
 # dependency
 - name: install casks
@@ -49,6 +50,7 @@
     - cowsay
     - curl
     - diff-so-fancy
+    - dive
     - dry
     - docker
     - editorconfig
