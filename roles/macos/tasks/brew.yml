@@ -101,6 +101,7 @@
     - scrypt
     - shellcheck
     - selecta
+    - speedtest-cli
     - stern
     - surfraw
     - tig
