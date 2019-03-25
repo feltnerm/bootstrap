@@ -24,3 +24,18 @@
   with_nested:
     - [ '', '-dev']
     - [ '3', '' ]
+
+- name: install python3-distutils
+  become: true
+  apt:
+    name: "python3-distutils"
+    state: present
+
+- name: install python setuptools
+  become: true
+  apt:
+    name: "python{{ item[1] }}-{{ item[0] }}"
+    state: present
+  with_nested:
+    - [ 'setuptools' ]
+    - [ '3', '' ]
