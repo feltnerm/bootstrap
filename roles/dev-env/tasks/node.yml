@@ -78,6 +78,7 @@
     - loadtest
     - mapscii
     - microtime
+    - neovim
     - nettime
     - nodemon
     - npm-check-updates
