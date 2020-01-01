@@ -9,19 +9,18 @@
 
 - name: get rust installer
   get_url:
-    url: "https://static.rust-lang.org/rustup.sh"
+    url: "https://sh.rustup.rs"
     dest: /tmp/rustup.sh
     mode: 0775
 
 - name: run rust installer
-  become: true
-  shell: "/tmp/rustup.sh --yes"
+  command: "/tmp/rustup.sh -y"
 
 - name: install dependencies
-  become: true
-  shell: "cargo install --force {{ item }}"
+  command: "cargo install --force {{ item }}"
   loop:
     # - bat
+    - bandwhich
     - exa
     - ripgrep
 
