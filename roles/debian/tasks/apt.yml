@@ -94,7 +94,6 @@
   register: check_autoremove
   ignore_errors: True
   changed_when: False
-  always_run: True
 
 - name: apt | remove packages
   become: true
