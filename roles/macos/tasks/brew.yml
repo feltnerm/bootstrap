@@ -13,12 +13,10 @@
   with_items:
     - boz/repo
     - c-bata/kube-prompt
-    - caskroom/cask
-    - caskroom/fonts
-    - caskroom/versions
+    # - homebrew/cask-cask
+    - homebrew/cask-fonts
+    - homebrew/cask-versions
     - homebrew/bundle
-    - homebrew/completions
-    - homebrew/dupes
     - homebrew/services
     - moncho/dry
     - thoughtbot/formulae
@@ -29,170 +27,171 @@
 # dependency
 - name: install casks
   homebrew_cask:
+    upgrade_all: yes
     name: xquartz
     state: present
 
 - name: install apps
   homebrew:
-    name: "{{ item }}"
+    upgrade_all: yes
+    name:
+      - ack
+      - archey
+      - awscli
+      - awless
+      - bash
+      - bat
+      - boz/repo/kail
+      - caddy
+      - checkstyle
+      - coreutils
+      - cowsay
+      - curl
+      - diff-so-fancy
+      - dive
+      - dry
+      - docker
+      - editorconfig
+      - exiftool
+      - fd
+      - ffmpeg
+      - figlet
+      - findbugs
+      - findutils
+      - fish
+      - flac
+      - fortune
+      - fpp
+      - ghostscript
+      - git
+      - git-lfs
+      - gitsh
+      - git-quick-stats
+      - graphviz
+      - hexyl
+      - htop-osx
+      - hub
+      - imagemagick
+      - jq
+      - keychain
+      - kubectl
+      - kubectx
+      - kubernetes-helm
+      - kube-prompt
+      - lnav
+      - lsof
+      - lynx
+      - mc
+      - mosh
+      - mtr
+      - ncdu
+      - noti
+      - peco
+      - pdfgrep
+      - pidof
+      - pmd
+      - pt
+      - ranger
+      - ripgrep
+      - rsync
+      - siege
+      - scrypt
+      - shellcheck
+      - selecta
+      - speedtest-cli
+      - stern
+      - surfraw
+      - tig
+      - thefuck
+      - tmux
+      - toilet
+      - trash
+      - tree
+      - unzip
+      - urlview
+      - vegeta
+      - wget
+      - wrk
+      - wordnet
     state: present
-  with_items:
-    - ack
-    - archey
-    - awscli
-    - awless
-    - bash
-    - bat
-    - boz/repo/kail
-    - caddy
-    - checkstyle
-    - coreutils
-    - cowsay
-    - curl
-    - diff-so-fancy
-    - dive
-    - dry
-    - docker
-    - editorconfig
-    - exiftool
-    - fd
-    - ffmpeg
-    - figlet
-    - findbugs
-    - findutils
-    - fish
-    - flac
-    - fortune
-    - fpp
-    - ghostscript
-    - git
-    - git-lfs
-    - gitsh
-    - git-quick-stats
-    - graphviz
-    - hexyl
-    - homebrew/dupes/grep
-    - htop-osx
-    - hub
-    - imagemagick
-    - jq
-    - keychain
-    - kubectl
-    - kubectx
-    - kubernetes-helm
-    - kube-prompt
-    - lnav
-    - lsof
-    - lynx
-    - mc
-    - mosh
-    - mtr
-    - ncdu
-    - noti
-    - peco
-    - pdfgrep
-    - pidof
-    - pmd
-    - pt
-    - ranger
-    - ripgrep
-    - rsync
-    - siege
-    - scrypt
-    - shellcheck
-    - selecta
-    - speedtest-cli
-    - stern
-    - surfraw
-    - tig
-    - thefuck
-    - tmux
-    - toilet
-    - trash
-    - tree
-    - unzip
-    - urlview
-    - vegeta
-    - wget
-    - wrk
-    - wordnet
 
 - name: install HEAD packages
   homebrew:
+    upgrade_all: yes
     name: 'universal-ctags'
     state: 'head'
 
 - name: install completions
   homebrew:
-    name: "{{ item }}"
+    upgrade_all: yes
+    name:
+      - brew-cask-completion
+      - launchctl-completion
+      - open-completion
+      - pip-completion
     state: present
-  with_items:
-    - brew-cask-completion
-    - launchctl-completion
-    - open-completion
-    - pip-completion
 
 - name: install casks
   homebrew_cask:
-    name: "{{ item }}"
     state: present
     # @todo: re-add in ansible 2.2
-    # install_options: "appdir=/Applications"
-  with_items:
-    - amethyst
-    - caffeine
-    - colloquy
-    - cyberduck
-    - docker-toolbox
-    - electric-sheep
-    - firefox
-    - flux
-    - google-chrome
-    - karabiner
-    # - keybase
-    - lastfm
-    - lastpass
-    - macdown
-    - sequel-pro
-    - slack
-    - spectacle
-    - spotify-notifications
-    - totalspaces
-    - tunnelblick
-    - vagrant
-    - vim
-    - virtualbox
-    - virtualbox-extension-pack
-    - visual-studio-code
-    - vlc
+    upgrade_all: yes
+    install_options: "appdir=/Applications"
+    name:
+      - amethyst
+      - caffeine
+      - colloquy
+      - cyberduck
+      - docker-toolbox
+      - electric-sheep
+      - firefox
+      - flux
+      - google-chrome
+      - karabiner
+      # - keybase
+      - lastfm
+      - lastpass
+      - macdown
+      - sequel-pro
+      - slack
+      - spectacle
+      - spotify-notifications
+      - totalspaces
+      - tunnelblick
+      - vagrant
+      - vim
+      - virtualbox
+      - virtualbox-extension-pack
+      - visual-studio-code
+      - vlc
 
 - name: install quicklook plugins
   homebrew_cask:
-    name: "{{ item }}"
+    upgrade_all: yes
+    name:
+      - qlcolorcode
+      - qlmarkdown
+      - quicklook-json
+      - quicklook-csv
+      - qlstephen
     state: present
-  with_items:
-    - qlcolorcode
-    - qlmarkdown
-    - quicklook-json
-    - quicklook-csv
-    - qlstephen
 
 - name: install fonts
   homebrew_cask:
-    name: "{{ item }}"
+    upgrade_all: yes
+    name:
+      - font-anonymous-pro-for-powerline
+      - font-consolas-for-powerline
+      - font-dejavu-sans-mono-for-powerline
+      - font-droid-sans-mono-for-powerline
+      - font-fira-mono-for-powerline
+      - font-inconsolata-dz-for-powerline
+      - font-meslo-lg-for-powerline
+      - font-sauce-code-powerline
+      - font-source-code-pro
+      - font-source-sans-pro
+      - font-source-serif-pro
     state: present
-  with_items:
-    - font-anonymous-pro-for-powerline
-    - font-consolas-for-powerline
-    - font-dejavu-sans-mono-for-powerline
-    - font-droid-sans-mono-for-powerline
-    - font-fira-mono-for-powerline
-    - font-inconsolata-dz-for-powerline
-    - font-meslo-lg-for-powerline
-    - font-sauce-code-powerline
-    - font-source-code-pro
-    - font-source-sans-pro
-    - font-source-serif-pro
 
 # - name: install casks apps
 #   homebrew:
