@@ -22,7 +22,7 @@
 - name: install node(s)
   become: true
   become_user: "{{ user }}"
-  shell: "nvm install {{ item }}"
+  shell: "source ~/.nvm/nvm.sh && nvm install {{ item }}"
   args:
     executable: "{{ shell_path.stdout }}"
   with_items:
@@ -33,25 +33,27 @@
     - 8
     - 9
     - 10
+    - 12
+    - stable
 
 - name: set current node version
   become: true
   become_user: "{{ user }}"
-  shell: nvm use 10
+  shell: "source ~/.nvm/nvm.sh && nvm use stable"
   args:
     executable: "{{ shell_path.stdout }}"
 
 - name: set system node version
   become: true
   become_user: "{{ user }}"
-  shell: nvm alias default 10
+  shell: "source ~/.nvm/nvm.sh && nvm alias default stable"
   args:
     executable: "{{ shell_path.stdout }}"
 
 - name: install global npm packages
   become: true
   become_user: "{{ user }}"
-  shell: "npm install -g {{ item }}"
+  shell: "source ~/.nvm/nvm.sh && npm install -g {{ item }}"
   args:
     executable: "{{ shell_path.stdout }}"
   with_items:
@@ -101,7 +103,7 @@
     - textlint
     - textlint-rule-rousseau
     - textlint-rule-alex
-    - textlint-rule-spellchecker
+    # - textlint-rule-spellchecker
     - textlint-rule-write-good
     - travis-watch
     - typescript
