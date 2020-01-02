@@ -14,5 +14,6 @@ echo ">> Updatin' root: '$UPDATE_ROOT'"
 ansible-playbook \
     "$UPDATE_ROOT"playbooks/update.yml \
     -e "user=$UPDATE_USER" \
-    -i "$UPDATE_ROOT"environments/local
+    -i "$UPDATE_ROOT"environments/local \
+    --ask-become-pass
 
