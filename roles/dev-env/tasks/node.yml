@@ -53,7 +53,7 @@
 - name: install global npm packages
   become: true
   become_user: "{{ user }}"
-  shell: "source ~/.nvm/nvm.sh && npm install -g {{ item }}"
+  shell: "source ~/.nvm/nvm.sh && nvm use stable && npm install -g {{ item }}"
   args:
     executable: "{{ shell_path.stdout }}"
   with_items:
