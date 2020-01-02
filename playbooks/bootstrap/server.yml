@@ -1,0 +1,12 @@
+# playbok/desktop.yml
+# Setup a base desktop environment on a local system
+
+- import_playbook: bootstrap.yml
+
+- hosts: all
+  roles:
+     - role: common-server
+  vars:
+    - locale: 'en_US.UTF-8'
+    - time_zone: 'US/Central'
+    - mac_time_zone: 'America/Chicago'
