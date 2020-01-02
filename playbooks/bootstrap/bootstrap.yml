@@ -14,11 +14,16 @@
        when: ansible_os_family == 'Darwin'
      - role: shell
      - role: dotfiles
-     - role: fish
   vars:
     - locale: 'en_US.UTF-8'
     - time_zone: 'US/Central'
     - mac_time_zone: 'America/Chicago'
+
+- hosts: rpis
+  roles:
+    - rpi
+    - common-server
+    - zeroconf
 
 - hosts: soundpi
   roles:

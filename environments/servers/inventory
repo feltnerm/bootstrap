@@ -1,8 +1,8 @@
-[nalanda]
-192.168.1.110 ansible_user=mark
-
-[soundpi]
+[gloves]
 192.168.1.120 ansible_user=mark
+
+[bingham]
+192.168.1.137 ansible_user=mark
 
 [whatbox]
 ulysses.whatbox.ca ansible_user=plugitin
@@ -10,6 +10,9 @@ ulysses.whatbox.ca ansible_user=plugitin
 [cloud:children]
 whatbox
 
+[rpis:children]
+gloves
+bingham
+
 [home:children]
-nalanda
-soundpi
+rpis

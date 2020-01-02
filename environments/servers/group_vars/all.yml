@@ -1,0 +1,5 @@
+
+  - hostname: gloves
+    address: 192.168.1.120
+  - hostname: bingham
+    address: 192.168.1.137
