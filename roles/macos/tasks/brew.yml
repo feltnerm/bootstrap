@@ -43,7 +43,10 @@
       - bat
       - boz/repo/kail
       - caddy
+      - ccls
       - checkstyle
+      - clojure-lsp
+      - cmake
       - coreutils
       - cowsay
       - curl
@@ -72,12 +75,14 @@
       - htop-osx
       - hub
       - imagemagick
+      - ispell
       - jq
       - keychain
       - kubectl
       - kubectx
       - kubernetes-helm
       - kube-prompt
+      - llvm
       - lnav
       - lsof
       - lynx
