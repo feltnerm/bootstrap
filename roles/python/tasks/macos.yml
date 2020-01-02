@@ -18,3 +18,26 @@
 
 - name: easy_install pip
   shell: easy_install pip
+  become: true
+
+- name: get pip installer
+  get_url:
+    url: "https://bootstrap.pypa.io/get-pip.py"
+    dest: /tmp/get-pip.py
+    mode: 0755
+
+- name: install pip from source
+  shell: "{{ item[0] }}{{ item[1] }} /tmp/get-pip.py"
+  become: true
+  with_nested:
+    - [ 'python' ]
+    - [ '2', '3' ]
+
+- name: Install pip tools
+  pip:
+    name: "{{ item[1] }}"
+    executable: "pip{{ item[0] }}"
+    state: latest
+  with_nested:
+    - [ '', '3' ]
+    - [ 'setuptools', 'wheel', 'certifi', 'pyopenssl', 'pyasn1', 'ndg-httpsclient' ]

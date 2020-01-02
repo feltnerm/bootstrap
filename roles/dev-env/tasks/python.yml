@@ -1,31 +1,10 @@
 ---
 
-- name: get pip installer
-  get_url:
-    url: "https://bootstrap.pypa.io/get-pip.py"
-    dest: /tmp/get-pip.py
-    mode: 0755
-
-- name: install pip from source
-  shell: "{{ item[0] }}{{ item[1] }} /tmp/get-pip.py"
-  with_nested:
-    - [ 'python' ]
-    - [ '2', '3' ]
-
-- name: Install pip tools
-  pip:
-    name: "{{ item[1] }}"
-    executable: "pip{{ item[0] }}"
-    state: latest
-  with_nested:
-    - [ '2', '3' ]
-    - [ 'setuptools', 'wheel', 'certifi', 'pyopenssl', 'pyasn1', 'ndg-httpsclient' ]
-
 - name: install Python tools
   pip:
     name: "{{ item[1] }}"
     executable: "pip{{ item[0] }}"
     state: latest
   with_nested:
-    - [ '2', '3' ]
+    - [ '', '3' ]
     - [ 'autopep8', 'glances', 'http-prompt', 'neovim', 'pbr', 'pydf', 'pycodestyle', "python-language-server", 'tox', 'virtualenv', 'virtualfish', 'virtualenvwrapper', 'wheel', 'xkcdpass' ]
