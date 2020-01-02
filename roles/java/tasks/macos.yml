@@ -4,8 +4,21 @@
   homebrew_cask:
     name: java
     state: present
+    upgrade_all: yes
+
+- name: install java11
+  homebrew_cask:
+    name: homebrew/cask-versions/java11
+    upgrade_all: yes
 
 - name: install corretto
   homebrew_cask:
-    name: java
+    name: corretto
     state: present
+    upgrade_all: yes
+
+- name: install corretto8
+  homebrew_cask:
+    name: corretto8
+    state: present
+    upgrade_all: yes

@@ -1,15 +1,18 @@
 - name: minecraft
   homebrew_cask:
+      upgrade_all: yes
       name: minecraft
       state: present
 
 - name: steam
   homebrew_cask:
+      upgrade_all: yes
       name: steam
       state: present
 
 - name: zdoom
   homebrew_cask:
+      upgrade_all: yes
       name: zdoom
       state: present
 
@@ -25,5 +28,6 @@
 
 - name: dwarf fortress
   homebrew_cask:
+      upgrade_all: yes
       name: dwarf-fortress-lnp
       state: present

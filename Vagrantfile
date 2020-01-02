@@ -20,6 +20,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "ubuntu" do |ubuntu|
     ubuntu.vm.box = "ubuntu/bionic64"
+    ubuntu.vm.box = "ubuntu/cosmic64"
     # install virtualbox-guest-utils until xenial box is patched
     ubuntu.vm.provision "shell",
                         inline: "sudo apt-get --no-install-recommends install virtualbox-guest-utils"
@@ -29,6 +30,9 @@ Vagrant.configure(2) do |config|
   config.vm.define "archlinux" do |archlinux|
     archlinux.vm.box = "archlinux/archlinux"
     archlinux.vm.synced_folder ".", "/vagrant", disabled: false
+  config.vm.define "arch" do |arch|
+      arch.vm.box = "archlinux/archlinux"
+      arch.vm.synced_folder ".", "/vagrant", disabled: false
   end
 
   config.vm.provision "shell",

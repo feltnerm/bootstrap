@@ -7,14 +7,12 @@
     mode: 0755
 
 - name: install pip from source
-  become: true
   shell: "{{ item[0] }}{{ item[1] }} /tmp/get-pip.py"
   with_nested:
     - [ 'python' ]
     - [ '2', '3' ]
 
 - name: Install pip tools
-  become: true
   pip:
     name: "{{ item[1] }}"
     executable: "pip{{ item[0] }}"
@@ -24,11 +22,10 @@
     - [ 'setuptools', 'wheel', 'certifi', 'pyopenssl', 'pyasn1', 'ndg-httpsclient' ]
 
 - name: install Python tools
-  become: true
   pip:
     name: "{{ item[1] }}"
     executable: "pip{{ item[0] }}"
     state: latest
   with_nested:
     - [ '2', '3' ]
-    - [ 'autopep8', 'glances', 'http-prompt', 'neovim', 'pbr', 'pydf', 'pycodestyle', "'python-language-server[all]'", 'tox', 'virtualenv', 'virtualfish', 'virtualenvwrapper', 'wheel', 'xkcdpass' ]
+    - [ 'autopep8', 'glances', 'http-prompt', 'neovim', 'pbr', 'pydf', 'pycodestyle', "python-language-server", 'tox', 'virtualenv', 'virtualfish', 'virtualenvwrapper', 'wheel', 'xkcdpass' ]

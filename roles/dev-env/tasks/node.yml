@@ -8,11 +8,11 @@
     dest: /tmp/nvm-install
     mode: 0755
 
-- name: get fish path
+- name: get shell path
   become: true
   become_user: "{{ user }}"
-  shell: which fish
-  register: fish_path
+  shell: which zsh
+  register: shell_path
 
 - name: install nvm
   become: true
@@ -22,9 +22,9 @@
 - name: install node(s)
   become: true
   become_user: "{{ user }}"
-  shell: "nvm install {{ item }}"
+  shell: "source ~/.nvm/nvm.sh && nvm install {{ item }}"
   args:
-    executable: "{{ fish_path.stdout }}"
+    executable: "{{ shell_path.stdout }}"
   with_items:
     - 4
     - 5
@@ -33,27 +33,29 @@
     - 8
     - 9
     - 10
+    - 12
+    - stable
 
 - name: set current node version
   become: true
   become_user: "{{ user }}"
-  shell: nvm use 10
+  shell: "source ~/.nvm/nvm.sh && nvm use stable"
   args:
-    executable: "{{ fish_path.stdout }}"
+    executable: "{{ shell_path.stdout }}"
 
 - name: set system node version
   become: true
   become_user: "{{ user }}"
-  shell: nvm alias default 10
+  shell: "source ~/.nvm/nvm.sh && nvm alias default stable"
   args:
-    executable: "{{ fish_path.stdout }}"
+    executable: "{{ shell_path.stdout }}"
 
 - name: install global npm packages
   become: true
   become_user: "{{ user }}"
-  shell: "npm install -g {{ item }}"
+  shell: "source ~/.nvm/nvm.sh && nvm use stable && npm install -g {{ item }}"
   args:
-    executable: "{{ fish_path.stdout }}"
+    executable: "{{ shell_path.stdout }}"
   with_items:
     - elm
     - elm-oracle
@@ -102,7 +104,7 @@
     - textlint
     - textlint-rule-rousseau
     - textlint-rule-alex
-    - textlint-rule-spellchecker
+    # - textlint-rule-spellchecker
     - textlint-rule-write-good
     - travis-watch
     - typescript

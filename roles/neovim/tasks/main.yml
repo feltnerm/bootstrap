@@ -23,7 +23,6 @@
       dest: "{{ user_home }}/.config/nvim/init.vim"
 
 - name: neovim python support
-  become: true
   pip:
     name: "neovim"
     state: latest

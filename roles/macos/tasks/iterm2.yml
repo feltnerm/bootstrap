@@ -4,6 +4,7 @@
   homebrew_cask:
       name: iterm2
       state: present
+      upgrade_all: yes
 
 #- name: install themes
 #  get_url: https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/iTerm2/Tomorrow%20Night.itermcolors
