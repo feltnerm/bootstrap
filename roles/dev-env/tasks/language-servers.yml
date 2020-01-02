@@ -1,0 +1,49 @@
+---
+
+- name: install language servers
+  become: true
+  become_user: "{{ user }}"
+  shell: "source ~/.nvm/nvm.sh && npm install -g {{ item }}"
+  with_items:
+    - bash-language-server
+    # - vscode-css-languageserver
+    - dockerfile-language-server-nodejs
+    - '@elm-tooling/elm-language-server'
+    - vscode-json-languageserver
+    - vscode-html-languageserver-bin
+    - javascript-typescript-langserver
+    - yaml-language-server
+
+# brew install \
+# ccls \
+# clojure-lsp \
+# cmake \
+# llvm
+##
+# go get golang.org/x/tools/gopls@latest.
+##
+# git clone git@github.com:graphql/graphql-language-service.git
+# cd {path/to/your/repo}
+# npm install ../graphql-language-service
+#
+##
+# git clone https://github.com/eclipse/eclipse.jdt.ls.git
+# cd eclipse.jdt.ls
+# ./mvnw clean verify
+# ~/bin/jdtls
+##
+# composer require felixfbecker/language-server
+#  composer run-script --working-dir=vendor/felixfbecker/language-server parse-stubs
+##
+# pip3 install 'python-language-server[yapf]''
+# pip3 install pyls-isort
+# pip3 install pyls-black
+# pip3 install pyls-mypy
+## pip2 also
+# sudo gem install solargraph
+##
+# rustup update
+# rustup component add rls rust-analysis rust-src
+##
+# git clone https://github.com/fwcd/kotlin-language-server.git
+# ./gradlew :server:installDist

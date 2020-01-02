@@ -10,3 +10,4 @@
 - include: "python.yml"
 - include: "node.yml"
 - include: "rvm.yml"
+- include: "language-servers.yml"
