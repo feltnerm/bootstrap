@@ -1,0 +1,63 @@
+---
+
+- name: get pip installer
+  get_url:
+    url: "https://bootstrap.pypa.io/get-pip.py"
+    dest: /tmp/get-pip.py
+    mode: 0755
+
+- name: Download ez_setup.py
+  get_url:
+    url: "https://bootstrap.pypa.io/ez_setup.py"
+    dest: /tmp/ez_setup.py
+    mode: 0755
+
+- name: install easy_install from source
+  shell: "{{ item[0] }}{{ item[1] }} /tmp/ez_setup.py --user"
+  with_nested:
+    - [ 'python' ]
+    - [ '3', '' ]
+
+- name: install pip from source
+  shell: "{{ item[0] }}{{ item[1] }} /tmp/get-pip.py --user"
+  with_nested:
+    - [ 'python' ]
+    - [ '3' ]
+
+- name: install Python tools
+  pip:
+    name: "{{ item }}"
+    executable: "{{ user_home }}/.local/bin/pip"
+    state: latest
+    extra_args: "--user"
+  with_items:
+    - virtualenv
+    - virtualenvwrapper
+    - wheel
+
+- name: make virtualenvs directory
+  file:
+    state: directory
+    path: "{{ user_home }}/.venvs"
+    mode: 0770
+
+- name: make virtualenv
+  command: "{{ user_home }}/.local/bin/virtualenv {{ user_home }}/.venvs/whatbox"
+
+- name: install software for music management virtualenv
+  pip:
+    virtualenv: "{{ user_home }}/.venvs/whatbox"
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - beets
+    - http-prompt
+    - pbr
+    - xkcdpass
+
+- name: get whatmp3
+  get_url:
+    url: "https://raw.githubusercontent.com/RecursiveForest/whatmp3/master/whatmp3.py"
+    dest: ~/bin
+    mode: 0770
+
