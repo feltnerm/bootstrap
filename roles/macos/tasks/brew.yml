@@ -42,6 +42,7 @@
       - awless
       - bash
       - bat
+      - bitwarden
       - boz/repo/kail
       - caddy
       - ccls
