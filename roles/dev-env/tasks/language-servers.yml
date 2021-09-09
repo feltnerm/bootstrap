@@ -11,7 +11,8 @@
     - '@elm-tooling/elm-language-server'
     - vscode-json-languageserver
     - vscode-html-languageserver-bin
-    - javascript-typescript-langserver
+    - typescript-language-server
+    - typescript
     - yaml-language-server
 
 # brew install \
