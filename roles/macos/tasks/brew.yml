@@ -37,6 +37,7 @@
     name:
       - ack
       - archey
+      - aspell
       - awscli
       - awless
       - bash
@@ -82,6 +83,7 @@
       - kubectx
       - kubernetes-helm
       - kube-prompt
+      - languagetool
       - llvm
       - lnav
       - lsof
