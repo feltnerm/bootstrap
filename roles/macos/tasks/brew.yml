@@ -53,6 +53,7 @@
       - cowsay
       - curl
       - diff-so-fancy
+      - direnv
       - dive
       - dry
       - docker
@@ -193,7 +194,9 @@
       - font-dejavu-sans-mono-for-powerline
       - font-droid-sans-mono-for-powerline
       - font-fira-mono-for-powerline
+      - font-hack
       - font-inconsolata-dz-for-powerline
+      - font-iosevka
       - font-meslo-lg-for-powerline
       - font-sauce-code-powerline
       - font-source-code-pro
